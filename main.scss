@@ -58,6 +58,13 @@ body {
     letter-spacing: .5rem;
     color: rgba(white, .5)
   }
+
+  &__pic {
+    height: 50%;
+    width: 50%;
+    border: 1px solid white;
+    object-fit: center
+  }
 }
 
 .slider {
@@ -76,11 +83,4 @@ body {
 .slide {
   right: 2.5%;
   left: 90%;
-}
-
-
-.pic {
-  height: 50%;
-  width: 50%;
-  border: 1px solid white;
 }

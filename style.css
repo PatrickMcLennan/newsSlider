@@ -46,6 +46,12 @@ body {
     text-transform: uppercase;
     letter-spacing: .5rem;
     color: rgba(255, 255, 255, 0.5); }
+  .main__pic {
+    height: 50%;
+    width: 50%;
+    border: 1px solid white;
+    -o-object-fit: center;
+       object-fit: center; }
 
 .slider {
   position: absolute;
@@ -63,8 +69,3 @@ body {
 .slide {
   right: 2.5%;
   left: 90%; }
-
-.pic {
-  height: 50%;
-  width: 50%;
-  border: 1px solid white; }
