@@ -21,7 +21,8 @@ body {
   width: 85vw;
   border: 1px solid white;
   position: relative;
-  filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
+          filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
   /**/
   display: flex;
   flex-direction: column;
@@ -52,7 +53,8 @@ body {
   top: -5%;
   left: 2.5%;
   background: #f2f2f2;
-  filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
+          filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
   cursor: pointer;
   transition: all 0.85s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 999; }
