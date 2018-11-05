@@ -38,7 +38,8 @@ body {
     font-weight: 100;
     letter-spacing: .75rem; }
     .main h1 span {
-      color: white; }
+      color: white;
+      font-size: 10rem; }
   .main h4 {
     font-size: 3rem;
     font-style: italic;
@@ -62,3 +63,8 @@ body {
 .slide {
   right: 2.5%;
   left: 90%; }
+
+.pic {
+  height: 50%;
+  width: 50%;
+  border: 1px solid white; }

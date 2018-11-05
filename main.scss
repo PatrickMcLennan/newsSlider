@@ -47,6 +47,7 @@ body {
 
     & span {
       color: white;
+      font-size: 10rem;
     }
   }
 
@@ -75,4 +76,11 @@ body {
 .slide {
   right: 2.5%;
   left: 90%;
+}
+
+
+.pic {
+  height: 50%;
+  width: 50%;
+  border: 1px solid white;
 }
