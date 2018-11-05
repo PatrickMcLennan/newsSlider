@@ -3,7 +3,9 @@
 const DOM = {
   slider: document.querySelector('.slider'),
   main: document.querySelector('.main'),
-  pic: document.querySelector('.main__pic'),
+  heading: document.querySelector('.heading'),
+  pic: document.querySelector('.heading__pic img'),
+  title: document.querySelector('.heading__header'),
 };
 
 // NEWS
@@ -24,7 +26,7 @@ class ApiCall {
     return json;
   }
 
-  async pullData() {
+  async buildObj() {
     const allData = await this.getJSON();
     const chosen = allData.articles[this.choice];
     this.pic = chosen.urlToImage;
@@ -39,13 +41,15 @@ class ApiCall {
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
+  DOM.heading.classList.toggle('sliderRight');
 });
-
-async function newNews(choice) {
+async function fillNews(choice) {
   const src = new ApiCall(choice);
-  await src.pullData();
-  DOM.pic.style.backgroundImage = `url(${src.pic})`;
+  await src.buildObj();
+  DOM.pic.setAttribute('src', `${src.pic}`);
+  DOM.pic.setAttribute('alt', `${src.title}`);
+  DOM.title.innerText = src.title;
   console.log(src.pic);
 }
 
-newNews(7);
+fillNews(3);

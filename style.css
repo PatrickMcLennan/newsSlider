@@ -46,12 +46,18 @@ body {
     text-transform: uppercase;
     letter-spacing: .5rem;
     color: rgba(255, 255, 255, 0.5); }
-  .main__pic {
-    height: 50%;
-    width: 50%;
-    border: 1px solid white;
-    -o-object-fit: center;
-       object-fit: center; }
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  transition: all cubic-bezier(0.77, 0, 0.175, 1);
+  padding-left: 10%;
+  padding-right: 2.5%; }
+  .heading__header, .heading__pic {
+    flex: 1; }
+  .heading__pic img {
+    -o-object-fit: cover;
+       object-fit: cover; }
 
 .slider {
   position: absolute;
@@ -69,3 +75,7 @@ body {
 .slide {
   right: 2.5%;
   left: 90%; }
+
+.sliderRight {
+  padding-left: 2.5%;
+  padding-right: 10%; }

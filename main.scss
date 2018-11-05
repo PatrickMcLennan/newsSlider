@@ -1,6 +1,5 @@
 $drop-shadow: drop-shadow(0 1rem 1rem rgba(black, .7));
 
-
 *,
 *::before,
 *::after {
@@ -58,12 +57,22 @@ body {
     letter-spacing: .5rem;
     color: rgba(white, .5)
   }
+}
 
+.heading {
+  display: flex;
+  flex-direction: row;
+  transition: all cubic-bezier(0.77, 0, 0.175, 1);
+  padding-left: 10%;
+  padding-right: 2.5%;
+
+  &__header,
   &__pic {
-    height: 50%;
-    width: 50%;
-    border: 1px solid white;
-    object-fit: center
+    flex: 1;
+  }
+
+  &__pic img {
+    object-fit: cover;
   }
 }
 
@@ -83,4 +92,8 @@ body {
 .slide {
   right: 2.5%;
   left: 90%;
+}
+.sliderRight {
+  padding-left: 2.5%;
+  padding-right: 10%;
 }
