@@ -41,15 +41,13 @@ class ApiCall {
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
-  DOM.heading.classList.toggle('sliderRight');
 });
+
 async function fillNews(choice) {
   const src = new ApiCall(choice);
   await src.buildObj();
-  DOM.pic.setAttribute('src', `${src.pic}`);
-  DOM.pic.setAttribute('alt', `${src.title}`);
+  DOM.heading.style.backgroundImage = `url(${src.pic})`;
   DOM.title.innerText = src.title;
-  console.log(src.pic);
 }
 
-fillNews(3);
+fillNews(4);
