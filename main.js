@@ -1,26 +1,40 @@
 'use strict';
 
+// 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
+
 const DOM = {
   slider: document.querySelector('.slider'),
   main: document.querySelector('.main'),
 };
 
 // NEWS
-class Source {
-  constructor() {
+class ApiCall {
+
+  constructor(choice) {
     this.apiKey = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
+    this.pic = '';
+    this.title = '';
+    this.content = '';
+    this.url = '';
+    this.author = '';
+    this.choice = choice;
   }
 
   async getJSON() {
-    const response = await fetch(this.apiKey);
-    const data = response.json();
-    return data;
+    const call = await fetch(this.apiKey);
+    const json = call.json();
+    return json;
   }
 
-  async findSrc(selection) {
-    const jsonObj = await this.getJSON();
-    const json = jsonObj.articles;
-    return json[selection];
+  async pullData(choice) {
+    const allData = await this.getJSON();
+    const chosen = allData.articles[choice];
+    this.pic = chosen.urlToImage;
+    this.title = chosen.title;
+    this.content = chosen.content;
+    this.url = chosen.url;
+    this.author = chosen.author;
+    console.log(this);
   }
 }
 
@@ -29,20 +43,9 @@ DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
 });
 
-// EVENTS
-
-const news = () => {
-  const newTry = new Source();
-  console.log(newTry.findSrc(11));
+const newNews = () => {
+  const newTry = new ApiCall();
+  newTry.pullData(5);
 };
 
-news();
-
-// CNBC, [1]
-// Forbes, [4]
-// MArketWatch, [5]
-// Reuters, [7]
-// Gizmodo, [8]
-// WSJ, [10]
-// NYT, [11]
-// CNN [13]
+newNews();
