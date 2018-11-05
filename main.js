@@ -1,12 +1,13 @@
 'use strict';
 
+// VARIABLES
 const DOM = {
   slider: document.querySelector('.slider'),
   main: document.querySelector('.main'),
 };
 
-
-class Main {
+// NEWS
+class Source {
   constructor() {
     this.apiKey = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
     this.json = this.getJSON();
@@ -17,20 +18,16 @@ class Main {
     const data = response.json();
     return data;
   }
-
-  async getSources() {
-    const json = await this.getJSON();
-    console.log(json.articles);
-  }
 }
 
+async function news() {
+  const src = new Source();
+  const json = await src.json;
+  console.log(json);
+}
+
+// DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
 });
-
-const news = () => {
-  const newNews = new Main();
-  newNews.getSources();
-};
-
 news();
