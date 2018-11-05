@@ -1,0 +1,20 @@
+{
+  "name": "newsslider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass main.scss style.css -w",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' style.css -o style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.3.1",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "node-sass": "^4.10.0",
+    "postcss-cli": "^6.0.1"
+  }
+}
