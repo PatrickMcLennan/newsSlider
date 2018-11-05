@@ -26,6 +26,37 @@ body {
   border: 1px solid white;
   position: relative;
   filter: $drop-shadow;
+
+  /**/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /**/
+
+  & h1,
+  & h4 {
+    font-family: 'Lato';
+  }
+
+  & h1 {
+    font-size: 7.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 100;
+    letter-spacing: .75rem;
+
+    & span {
+      color: white;
+    }
+  }
+
+  & h4 {
+    font-size: 3rem;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: rgba(white, .5)
+  }
 }
 
 .slider {

@@ -23,11 +23,13 @@ class Source {
 async function news() {
   const src = new Source();
   const json = await src.json;
-  console.log(json);
+  console.log(json.articles);
 }
 
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
 });
-news();
+
+// EVENTS
+document.onload = news();

@@ -21,7 +21,29 @@ body {
   width: 85vw;
   border: 1px solid white;
   position: relative;
-  filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7)); }
+  filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
+  /**/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /**/ }
+  .main h1,
+  .main h4 {
+    font-family: 'Lato'; }
+  .main h1 {
+    font-size: 7.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 100;
+    letter-spacing: .75rem; }
+    .main h1 span {
+      color: white; }
+  .main h4 {
+    font-size: 3rem;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: rgba(255, 255, 255, 0.5); }
 
 .slider {
   position: absolute;
