@@ -21,11 +21,6 @@ class ApiCall {
   }
 }
 
-// DOM MANIPULATION
-DOM.slider.addEventListener('click', () => {
-  DOM.slider.classList.toggle('slide');
-});
-
 async function newNews() {
   const news = new ApiCall();
   const json = await news.getJSON();
@@ -34,3 +29,8 @@ async function newNews() {
 }
 
 newNews();
+
+// DOM MANIPULATION
+DOM.slider.addEventListener('click', () => {
+  DOM.slider.classList.toggle('slide');
+});
