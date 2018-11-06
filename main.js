@@ -10,31 +10,15 @@ const DOM = {
 
 // NEWS
 class ApiCall {
-  constructor(choice) {
+  constructor() {
     this.apiKey = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
-    this.pic = '';
-    this.title = '';
-    this.content = '';
-    this.url = '';
-    this.author = '';
-    this.choice = choice;
+    this.stories = [];
   }
 
   async getJSON() {
     const call = await fetch(this.apiKey);
     const json = call.json();
-    return json;
-  }
-
-  async buildObj() {
-    const allData = await this.getJSON();
-    const chosen = allData.articles[this.choice];
-    this.pic = chosen.urlToImage;
-    this.title = chosen.title;
-    this.content = chosen.content;
-    this.url = chosen.url;
-    this.author = chosen.author;
-    return this;
+    return json.articles;
   }
 }
 
@@ -43,11 +27,10 @@ DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
 });
 
-async function fillNews(choice) {
-  const src = new ApiCall(choice);
-  await src.buildObj();
-  DOM.heading.style.backgroundImage = `url(${src.pic})`;
-  DOM.title.innerText = src.title;
+async function getNews() {
+  const news = new ApiCall();
+  const stories = await news.getJSON();
+  console.log(stories);
 }
 
-fillNews(4);
+getNews();
