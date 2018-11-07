@@ -9,7 +9,7 @@ const DOM = {
 };
 
 // GETTING THE NEWS
-let news = [];
+let stories = [];
 
 async function apiCall() {
   const apiKey = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
@@ -20,22 +20,22 @@ async function apiCall() {
 
 async function queueNews() {
   const json = await apiCall();
-  const stories = json.articles;
-  news = [...stories];
+  const news = json.articles;
+  stories = [...news];
 }
 
 // CREATING DOM CARDS
 class Card {
   constructor(article) {
-    this.src = news[article];
-    this.author = this.src.author;
-    this.content = this.src.content;
-    this.description = this.src.description;
-    this.date = this.src.date;
-    this.outlet = this.src.source.name;
-    this.title = this.src.title;
-    this.url = this.src.url;
-    this.pic = this.src.urlToImage;
+    this.article = stories[article];
+    this.author = this.article.author;
+    this.content = this.article.content;
+    this.description = this.article.description;
+    this.date = this.article.date;
+    this.outlet = this.article.source.name;
+    this.title = this.article.title;
+    this.url = this.article.url;
+    this.pic = this.article.urlToImage;
   }
 }
 
