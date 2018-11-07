@@ -8,29 +8,46 @@ const DOM = {
   title: document.querySelector('.heading__header'),
 };
 
-// NEWS
-class ApiCall {
-  constructor() {
-    this.apiKey = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
-  }
+// GETTING THE NEWS
+let news = [];
 
-  async getJSON() {
-    const call = await fetch(this.apiKey);
-    const json = call.json();
-    return json;
-  }
+async function apiCall() {
+  const apiKey = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
+  const data = await fetch(apiKey);
+  const json = data.json();
+  return json;
 }
 
-async function newNews() {
-  const news = new ApiCall();
-  const json = await news.getJSON();
+async function queueNews() {
+  const json = await apiCall();
   const stories = json.articles;
-  stories.forEach(i => console.log(i.urlToImage));
+  news = [...stories];
 }
 
-newNews();
+// CREATING DOM CARDS
+class Card {
+  constructor(article) {
+    this.src = news[article];
+    this.author = this.src.author;
+    this.content = this.src.content;
+    this.description = this.src.description;
+    this.date = this.src.date;
+    this.outlet = this.src.source.name;
+    this.title = this.src.title;
+    this.url = this.src.url;
+    this.pic = this.src.urlToImage;
+  }
+}
+
+const newCard = (num) => {
+  const card = new Card(num);
+  console.log(card);
+};
 
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
 });
+
+// CALL THE API AS SOON AS THE PAGE LOADS
+queueNews();
