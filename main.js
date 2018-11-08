@@ -21,11 +21,11 @@ async function apiCall() {
   return json;
 }
 
-(async () => {
-  const json = await apiCall();
-  const news = json.articles;
-  NEWS.stories = [...news];
-})();
+// (async () => {
+//   const json = await apiCall();
+//   const news = json.articles;
+//   NEWS.stories = [...news];
+// })();
 
 // CREATE DOM CARDS ON THE C.T.A
 class Card {
@@ -42,10 +42,10 @@ class Card {
   }
 }
 
-const newCard = (num) => {
-  const card = new Card(num);
-  console.log(card);
-};
+// const newCard = (num) => {
+//   const card = new Card(num);
+//   console.log(card);
+// };
 
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
