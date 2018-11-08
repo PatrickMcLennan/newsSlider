@@ -1,0 +1,75 @@
+// https://flatuicolors.com/palette/defo
+
+@import 'queries';
+@import 'variables';
+@import 'typography';
+
+$drop-shadow: drop-shadow(0 1rem 1rem rgba(black, .7));
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Lato';
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: $color-background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  height: 75vh;
+  width: 85vw;
+  border: 1px solid white;
+  position: relative;
+  filter: $drop-shadow;
+  padding: 1vh 1vw;
+  display: flex;
+
+  &__welcome {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: flex-end;
+
+    &__header {
+      @include welcomeHeader;
+    }
+
+    &__secondary {
+      @include welcomeSecondary;
+    }
+
+    & span {
+      color: $color-white;
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  height: 110%;
+  width: 7.5%;
+  top: -5%;
+  left: 2.5%;
+  background: rgba(white, .5);
+  filter: $drop-shadow;
+  cursor: pointer;
+  transition: all .85s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 999;
+}
+
+.slide {
+  right: 2.5%;
+  left: 90%;
+}
