@@ -8,9 +8,12 @@ const DOM = {
   title: document.querySelector('.heading__header'),
 };
 
-// GETTING THE NEWS
-let stories = [];
+const NEWS = {
+  stories: [],
+  articleCount: -1,
+};
 
+// GET THE NEWS AS SOON AS THE PAGE LOADS
 async function apiCall() {
   const apiKey = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903';
   const data = await fetch(apiKey);
@@ -18,16 +21,16 @@ async function apiCall() {
   return json;
 }
 
-async function queueNews() {
+(async () => {
   const json = await apiCall();
   const news = json.articles;
-  stories = [...news];
-}
+  NEWS.stories = [...news];
+})();
 
-// CREATING DOM CARDS
+// CREATE DOM CARDS ON THE C.T.A
 class Card {
   constructor(article) {
-    this.article = stories[article];
+    this.article = NEWS.stories[article];
     this.author = this.article.author;
     this.content = this.article.content;
     this.description = this.article.description;
@@ -48,6 +51,3 @@ const newCard = (num) => {
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
 });
-
-// CALL THE API AS SOON AS THE PAGE LOADS
-queueNews();
