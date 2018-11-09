@@ -6,6 +6,11 @@ const DOM = {
   heading: document.querySelector('.heading'),
   pic: document.querySelector('.heading__pic img'),
   title: document.querySelector('.heading__header'),
+  card: {
+    pic: document.querySelector('.card__pic'),
+    outlet: document.querySelector('.card__outlet'),
+    title: document.querySelector('.card__title'),
+  },
 };
 
 const NEWS = {
@@ -21,16 +26,18 @@ async function apiCall() {
   return json;
 }
 
-(async () => {
-  const json = await apiCall();
-  const news = json.articles;
-  NEWS.stories = [...news];
-})();
+// (async () => {
+//   const json = await apiCall();
+//   const news = json.articles;
+//   NEWS.stories = [...news];
+// })();
 
 // CREATE DOM CARDS ON THE C.T.A
 class Card {
   constructor(article) {
     this.article = NEWS.stories[article];
+    this.card = DOM.card;
+    // ARTICLE INFO
     this.author = this.article.author;
     this.content = this.article.content;
     this.description = this.article.description;
@@ -42,10 +49,10 @@ class Card {
   }
 }
 
-const newCard = (num) => {
-  const card = new Card(num);
-  console.log(card);
-};
+// const newCard = (num) => {
+//   const card = new Card(num);
+//   console.log(card);
+// };
 
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
