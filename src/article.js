@@ -1,10 +1,8 @@
 import NEWS from './news';
-import DOM from './dom';
 
-class Card {
+class Article {
   constructor(position) {
     this.article = NEWS.stories[position];
-    this.card = DOM.card;
     // ARTICLE INFO
     this.author = this.article.author;
     this.content = this.article.content;
@@ -21,4 +19,4 @@ class Card {
   }
 }
 
-export default Card;
+export default Article;

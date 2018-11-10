@@ -1,3 +1,4 @@
+import NEWS from './news';
 import Article from './article';
 
 const hello = () => {
