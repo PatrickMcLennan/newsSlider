@@ -1,9 +1,9 @@
 import NEWS from './news';
 import Article from './article';
+import DOM from './dom';
 
-const hello = () => {
-  const story = new Article(4);
-  story.sayHello();
-};
-
-hello();
+(() => {
+  console.log(NEWS);
+  console.log(Article);
+  console.log(DOM);
+})();

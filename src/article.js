@@ -13,10 +13,6 @@ class Article {
     this.url = this.article.url;
     this.pic = this.article.urlToImage;
   }
-
-  sayHello() {
-    console.log(this);
-  }
 }
 
 export default Article;
