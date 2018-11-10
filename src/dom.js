@@ -11,4 +11,9 @@ const DOM = {
   },
 };
 
+// DOM MANIPULATION
+DOM.slider.addEventListener('click', () => {
+  DOM.slider.classList.toggle('slide');
+});
+
 export default DOM;

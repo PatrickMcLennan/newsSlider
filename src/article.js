@@ -1,3 +1,6 @@
+import NEWS from './news';
+import DOM from './dom';
+
 class Card {
   constructor(article) {
     this.article = NEWS.stories[article];
@@ -11,6 +14,10 @@ class Card {
     this.title = this.article.title;
     this.url = this.article.url;
     this.pic = this.article.urlToImage;
+  }
+
+  sayHello() {
+    console.log(this);
   }
 }
 
