@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Lato';
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: $color-background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  height: 75vh;
+  width: 85vw;
+  border: 1px solid white;
+  position: relative;
+  filter: $drop-shadow;
+  padding: 1vh 1vw;
+  display: flex;
+}
