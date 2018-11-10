@@ -2,8 +2,8 @@ import NEWS from './news';
 import DOM from './dom';
 
 class Card {
-  constructor(article) {
-    this.article = NEWS.stories[article];
+  constructor(position) {
+    this.article = NEWS.stories[position];
     this.card = DOM.card;
     // ARTICLE INFO
     this.author = this.article.author;
