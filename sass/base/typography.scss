@@ -54,4 +54,21 @@
 @mixin infoAuthor {
   font-size: 2rem;
   text-transform: uppercase;
+  color: $color-white;
+  letter-spacing: .7rem;
+
+  & span {
+    font-style: italic;
+    color: rgba($color-white, .85);
+    margin-bottom: 1rem;
+    letter-spacing: .3rem;
+  }
+}
+
+@mixin infoDate {
+  font-size: 2rem;
+  color: $color-white;
+  letter-spacing: .7rem;
+  text-transform: uppercase;
+
 }
