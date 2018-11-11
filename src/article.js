@@ -1,8 +1,10 @@
 import NEWS from './news';
+import DOM from './dom';
 
 class Article {
   constructor(position) {
     this.article = NEWS.stories[position];
+    this.slider = DOM.slider;
     // ARTICLE INFO
     this.author = this.article.author;
     this.content = this.article.content;
@@ -14,9 +16,15 @@ class Article {
     this.pic = this.article.urlToImage;
   }
 
+  placeArticle() {
+    const side = this.slider.classList.contains('slide') ? 'placeRight' : 'placeLeft';
+    return side;
+  }
+
   createArticle() {
     const newArticle = document.createElement('section');
     newArticle.classList.add('article');
+    newArticle.classList.add(this.placeArticle());
     newArticle.innerHTML = `
       <div class="article__pic">
         <img src=${this.pic} alt="${this.title}">

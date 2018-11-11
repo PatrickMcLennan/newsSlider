@@ -10,22 +10,21 @@ function createHTML() {
   return html;
 }
 
-function placeHTML() {
-  const { slider } = DOM;
-  const newArticle = createHTML();
-  const placedArticle = slider.classList.contains('slide') ? newArticle.classList.add('placeRight') : newArticle.classList.add('placeLeft');
-  return placedArticle;
-}
+// function placeHTML() {
+//   const { slider } = DOM;
+//   const newArticle = createHTML();
+//   const placedArticle = slider.classList.contains('slide') ? newArticle.classList.add('placeRight') : newArticle.classList.add('placeLeft');
+//   console.log(placedArticle);
+// }
 
 function animate() {
   const { slider, main, currentArticle } = DOM;
-  const placedArticle = placeHTML();
+  const placedArticle = createHTML();
+  const articles = [currentArticle, placedArticle];
   if (slider.classList.contains('slide')) {
-    currentArticle.classList.add('placeLeft');
-    placedArticle.classList.toggle('placeLeft');
+    articles.forEach(i => i.classList.toggle('placeLeft'));
   } else {
-    currentArticle.classList.add('placeRight');
-    placedArticle.classList.toggle('placeRight');
+    articles.forEach(i => i.classList.toggle('placeRight'));
   }
   main.removeChild(currentArticle);
   slider.classList.toggle('slide');
