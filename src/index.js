@@ -3,31 +3,21 @@ import NEWS from './news';
 import Article from './article';
 
 function createHTML() {
-  let { arrayPosition: story } = NEWS;
-  story += 1;
-  const article = new Article(story);
+  NEWS.arrayPosition += 1;
+  const article = new Article(NEWS.arrayPosition);
   const html = article.pic === null ? createHTML() : article.createArticle();
   return html;
 }
 
-// function placeHTML() {
-//   const { slider } = DOM;
-//   const newArticle = createHTML();
-//   const placedArticle = slider.classList.contains('slide') ? newArticle.classList.add('placeRight') : newArticle.classList.add('placeLeft');
-//   console.log(placedArticle);
-// }
-
 function animate() {
-  const { slider, main, currentArticle } = DOM;
+  const { slider, main } = DOM;
+  const currentArticle = DOM.main.querySelector('.currentArticle');
   const placedArticle = createHTML();
+  main.appendChild(placedArticle);
   const articles = [currentArticle, placedArticle];
-  if (slider.classList.contains('slide')) {
-    articles.forEach(i => i.classList.toggle('placeLeft'));
-  } else {
-    articles.forEach(i => i.classList.toggle('placeRight'));
-  }
-  main.parentNode.removeChild(currentArticle);
+  const animation = slider.classList.contains('slide') ? articles.forEach(i => i.classlist.toggle('placeLeft')) : articles.forEach(i => i.classList.toggle('placeRight'));
   slider.classList.toggle('slide');
+  return animation;
 }
 
 DOM.slider.addEventListener('click', animate);
