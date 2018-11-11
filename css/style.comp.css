@@ -131,10 +131,10 @@ body {
         margin-bottom: 1rem;
         letter-spacing: .3rem; }
 
-.slideLeft {
+.placeLeft {
   transform: translateX(-100vw); }
 
-.slideRight {
+.placeRight {
   transform: translateX(100vw); }
 
 .slider {
