@@ -9,25 +9,29 @@
     flex: 1 1 50%;
 
     & img {
-      flex: 1;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: -10;
     }
 
     &__outlet {
       position: absolute;
-      top: -5%;
-      left: -5%;
+      top: -2.5%;
+      left: 10%;
+      @include picOutlet;
     }
 
     &__title {
       position: absolute;
-      bottom: -5%;
-      right: -5%;
+      bottom: -2.5%;
+      right: 10%;
+      @include picTitle;
     }
   }
 
   &__info {
     display: flex;
-    flex-direction: row;
     flex: 1 1 50%;
 
     &__content {

@@ -11,3 +11,19 @@
   letter-spacing: .5rem;
   color: rgba($color-white, .5);
 }
+
+@mixin picOutlet {
+  font-size: 3.75rem;
+  font-style: italic;
+  background-image: linear-gradient(to top left, rgba($color-black, 0) 50%, rgba($color-black, .25));
+  padding: 1rem 2rem;
+  color: $color-white;
+}
+
+@mixin picTitle {
+  font-size: 2.5rem;
+  font-style: italic;
+  background-image: linear-gradient(to bottom right, rgba($color-black, 0) 50%, rgba($color-black, .25));
+  padding: 1rem 2rem;
+  color: $color-white;
+}
