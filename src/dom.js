@@ -10,11 +10,14 @@ const DOM = {
 };
 
 // DOM MANIPULATION
-DOM.slider.addEventListener('click', () => {
+
+function slideArticle() {
+  const { slider } = DOM;
   DOM.slider.classList.toggle('slide');
   NEWS.storiesPosition += 1;
-  const story = new Article(NEWS.storiesPosition);
-  story.placeElement();
-});
+  const article = new Article(NEWS.storiesPosition);
+  slider.classList.contains('slide') ? article.classList.add('slideLeft') : article.classList.add('slideRight');
+}
+DOM.slider.addEventListener('click', slideArticle);
 
 export default DOM;

@@ -47,6 +47,7 @@ class Article {
     const { slider } = DOM;
     const article = this.createArticle();
     DOM.main.appendChild(article);
+    slider.classList.contains('slide') ? article.style.transform = 'translateX(100vw)' : article.style.transform = 'translateX(-100vw)';
   }
 }
 

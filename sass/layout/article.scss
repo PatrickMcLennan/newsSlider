@@ -2,6 +2,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  transition: all .85s cubic-bezier(0.77, 0, 0.175, 1);
 
   &__pic {
     position: relative;
