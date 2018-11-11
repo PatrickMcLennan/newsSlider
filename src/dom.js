@@ -1,3 +1,6 @@
+import Article from './article';
+import NEWS from './news';
+
 const DOM = {
   slider: document.querySelector('.slider'),
   main: document.querySelector('.main'),
@@ -9,6 +12,10 @@ const DOM = {
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
+  const story = new Article(4);
+  story.placeElement();
+  NEWS.storiesPosition += 1;
+  console.log(NEWS);
 });
 
 export default DOM;

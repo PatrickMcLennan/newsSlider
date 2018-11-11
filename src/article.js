@@ -1,4 +1,7 @@
 import NEWS from './news';
+import DOM from './dom';
+
+console.log(NEWS);
 
 class Article {
   constructor(position) {
@@ -14,11 +17,10 @@ class Article {
     this.pic = this.article.urlToImage;
   }
 
-  fillDOM() {
+  createElement() {
     const newArticle = document.createElement('section');
     newArticle.classList.add('article');
     newArticle.innerHTML = `
-    <section class="article">
       <div class="article__pic">
         <img src=${this.pic} alt="${this.title}">
         <h5 class="article__pic__outlet">${this.outlet}</h5>
@@ -39,9 +41,13 @@ class Article {
         </div>
 
       </div>
-
-    </section>
     `;
+    return newArticle;
+  }
+
+  placeElement() {
+    const slider = DOM.slider;
+    slider.classList.contains('slide') ? console.log('right') : console.log('left');
   }
 }
 
