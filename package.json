@@ -13,7 +13,6 @@
     "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css",
     "watch:js": "webpack -w --mode=development",
     "build:js": "webpack --mode=production",
-    "watch": "npm-run-all watch:sass watch:js",
     "build": "npm-run-all minify:html build:css build:js"
   },
   "author": "",

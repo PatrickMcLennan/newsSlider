@@ -3,10 +3,9 @@ import NEWS from './news';
 import Article from './article';
 
 function create() {
-  NEWS.storiesPosition += 1;
+  NEWS.arrayPosition += 1;
   const article = new Article(NEWS.arrayPosition);
-  const html = article.createArticle();
-  console.log('hello');
+  const html = article.pic === null ? create() : article.createArticle();
   console.log(html);
 }
 
