@@ -19,7 +19,7 @@
   background: rgba($color-black, .15);
   padding: 1rem 2rem;
   color: $color-white;
-  text-shadow: 0 1px $color-black;
+  text-shadow: $text-shadow;
 }
 
 @mixin picTitle {
@@ -28,7 +28,7 @@
   background: rgba($color-black, .15);
   padding: 1rem 2rem;
   color: $color-white;
-  text-shadow: 0 1px $color-black;
+  text-shadow: $text-shadow;
 }
 
 @mixin infoText {
@@ -37,10 +37,21 @@
   letter-spacing: 2.5px;
   line-height: 120%;
   font-weight: 300;
+  text-shadow: $text-shadow;
 
   &:first-letter {
     font-size: 4.5rem;
     margin-left: 3rem;
     font-style: italic;
   }
+}
+
+@mixin infoDate {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+@mixin infoAuthor {
+  font-size: 2rem;
+  text-transform: uppercase;
 }

@@ -32,7 +32,7 @@
 
   &__info {
     display: flex;
-    flex: 1 1 50%;
+    flex: 1 1 60%;
     padding: 5% 7.5%;
 
     &__content {
@@ -46,11 +46,21 @@
     }
 
     &__links {
-      flex: 1 1 50%;
+      flex: 1 1 40%;
       display: flex;
       flex-direction: column;
-      justify-items: center;
-      align-items: flex-start;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    &__date {
+      @include infoDate;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__author {
+      @include infoAuthor;
     }
   }
 }
