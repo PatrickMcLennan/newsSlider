@@ -10,26 +10,26 @@ function createHTML() {
 }
 
 function placeHTML() {
-  const { main, slider } = DOM;
+  const { slider, main, currentArticle } = DOM;
   const newArticle = createHTML();
   main.appendChild(newArticle);
   const placedArticle = slider.classList.contains('slide') ? newArticle.classList.add('placeRight') : newArticle.classList.add('placeLeft');
   return placedArticle;
+
 }
 
 function animate() {
-  const { slider, main } = DOM;
-  const currentArticle = main.getElementsByTagName('section');
-  const newArticle = placeHTML();
-  const [moveLeft, moveRight] = ['placeLeft', 'placeRight'];
+  const { slider, main, currentArticle } = DOM;
+  const placedArticle = placeHTML();
   if (slider.classList.contains('slide')) {
-    currentArticle.classList.add(moveLeft);
-    newArticle.classList.toggle(moveLeft);
+    currentArticle.classList.add('placeLeft');
+    placedArticle.classList.toggle('placeLeft');
   } else {
-    currentArticle.classList.add(moveRight);
-    newArticle.classList.toggle(moveRight);
+    currentArticle.classList.add('placeRight');
+    placedArticle.classList.toggle('placeRight');
   }
   main.removeChild(currentArticle);
+  slider.classList.toggle('slide');
 }
 
 DOM.slider.addEventListener('click', animate);
