@@ -1,6 +1,6 @@
 const NEWS = {
   stories: [],
-  storiesPosition: -1,
+  arrayPosition: -1,
   apiKey: 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903',
 };
 
