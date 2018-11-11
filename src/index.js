@@ -18,9 +18,18 @@ function placeHTML() {
 }
 
 function animate() {
-  const { main, slider } = DOM;
+  const { slider, main } = DOM;
   const currentArticle = main.getElementsByTagName('section');
   const newArticle = placeHTML();
+  const [moveLeft, moveRight] = ['placeLeft', 'placeRight'];
+  if (slider.classList.contains('slide')) {
+    currentArticle.classList.add(moveLeft);
+    newArticle.classList.toggle(moveLeft);
+  } else {
+    currentArticle.classList.add(moveRight);
+    newArticle.classList.toggle(moveRight);
+  }
+  main.removeChild(currentArticle);
 }
 
 DOM.slider.addEventListener('click', animate);

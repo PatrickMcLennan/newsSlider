@@ -6,6 +6,4 @@ const DOM = {
   title: document.querySelector('.heading__header'),
 };
 
-// DOM MANIPULATION
-
 export default DOM;
