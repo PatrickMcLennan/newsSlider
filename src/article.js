@@ -44,7 +44,8 @@ class Article {
   }
 
   placeElement() {
-    const bar = DOM.slider;
+    const slider = DOM.slider;
+    const story = this.createElement();
     bar.classList.contains('slide') ? console.log(this) : console.log(this);
   }
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "minify:html": "html-minifier -o index.html src.html --remove-attribute-quotes --remove-comments --collapse-whitespace",
+    "minify:html": "html-minifier -o html/index.html html/src.html --remove-attribute-quotes --remove-comments --collapse-whitespace",
     "watch:sass": "node-sass sass/main.scss css/style.css -w",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
     "concat:css": "concat -o css/style.concat.css css/style.comp.css",
