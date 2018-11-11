@@ -11,15 +11,7 @@
   filter: $drop-shadow;
   transition: all .85s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 999;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  & img {
-    padding: 2vh 0;
-    height: 10%;
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .slide {

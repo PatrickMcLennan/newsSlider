@@ -44,7 +44,6 @@ body {
 .main {
   height: 80vh;
   width: 85vw;
-  border: 1px solid white;
   position: relative;
   filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
   padding: 1vh 1vw;
@@ -143,13 +142,7 @@ body {
   filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7));
   transition: all 0.85s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 999;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; }
-  .slider img {
-    padding: 2vh 0;
-    height: 10%;
-    cursor: pointer; }
+  cursor: pointer; }
 
 .slide {
   left: 95%; }
