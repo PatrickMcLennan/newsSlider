@@ -1,5 +1,4 @@
 import NEWS from './news';
-import DOM from './dom';
 
 class Article {
   constructor(position) {
@@ -41,13 +40,6 @@ class Article {
       </div>
     `;
     return newArticle;
-  }
-
-  placeArticle() {
-    const { slider } = DOM;
-    const article = this.createArticle();
-    DOM.main.appendChild(article);
-    slider.classList.contains('slide') ? article.style.transform = 'translateX(100vw)' : article.style.transform = 'translateX(-100vw)';
   }
 }
 

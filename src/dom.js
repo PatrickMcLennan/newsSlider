@@ -11,13 +11,29 @@ const DOM = {
 
 // DOM MANIPULATION
 
-function slideArticle() {
-  const { slider } = DOM;
-  DOM.slider.classList.toggle('slide');
+// function placeArticle() {
+//   const { slider, main } = DOM;
+//   const article = createArticle();
+//   main.appendChild(article);
+//   slider.classList.contains('slide') ? article.style.transform = 'translateX(100vw)' : article.style.transform = 'translateX(-100vw)';
+// }
+
+// function slideArticles() {
+//   const { slider } = DOM;
+//   DOM.slider.classList.toggle('slide');
+//   NEWS.storiesPosition += 1;
+//   const article = new Article(NEWS.storiesPosition);
+//   console.log(article);
+//   slider.classList.contains('slide') ? article.classList.add('slideLeft') : article.classList.add('slideRight');
+// }
+
+function create() {
   NEWS.storiesPosition += 1;
   const article = new Article(NEWS.storiesPosition);
-  slider.classList.contains('slide') ? article.classList.add('slideLeft') : article.classList.add('slideRight');
+  const html = article.createArticle();
+  console.log(html);
 }
-DOM.slider.addEventListener('click', slideArticle);
+
+DOM.slider.addEventListener('click', create());
 
 export default DOM;
