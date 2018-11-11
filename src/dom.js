@@ -12,7 +12,7 @@ const DOM = {
 // DOM MANIPULATION
 DOM.slider.addEventListener('click', () => {
   DOM.slider.classList.toggle('slide');
-  const story = new Article(4);
+  const story = new Article(NEWS.storiesPosition);
   story.placeElement();
   NEWS.storiesPosition += 1;
   console.log(NEWS);

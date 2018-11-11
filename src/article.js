@@ -47,7 +47,7 @@ class Article {
 
   placeElement() {
     const slider = DOM.slider;
-    slider.classList.contains('slide') ? console.log('right') : console.log('left');
+    slider.classList.contains('slide') ? console.log(this) : console.log(this);
   }
 }
 
