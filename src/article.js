@@ -1,8 +1,6 @@
 import NEWS from './news';
 import DOM from './dom';
 
-console.log(NEWS);
-
 class Article {
   constructor(position) {
     this.article = NEWS.stories[position];
@@ -46,8 +44,8 @@ class Article {
   }
 
   placeElement() {
-    const slider = DOM.slider;
-    slider.classList.contains('slide') ? console.log(this) : console.log(this);
+    const bar = DOM.slider;
+    bar.classList.contains('slide') ? console.log(this) : console.log(this);
   }
 }
 
