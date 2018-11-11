@@ -9,20 +9,12 @@ function createHTML() {
   return html;
 }
 
-const sliderRight = () => {
-  let slidRight = false;
-  if (DOM.slider.classList.contains('slide')) {
-    slidRight = true;
-  }
-  return slidRight;
-};
-
 function placeHTML() {
   const { main, slider } = DOM;
   const newArticle = createHTML();
   main.appendChild(newArticle);
-  sliderRight() === false ? newArticle.classList.add('placeLeft') : newArticle.classList.add('placeRight');
-  return newArticle;
+  const placedArticle = slider.classList.contains('slide') ? newArticle.classList.add('placeRight') : newArticle.classList.add('placeLeft');
+  return placedArticle;
 }
 
 function animate() {
@@ -31,4 +23,4 @@ function animate() {
   const newArticle = placeHTML();
 }
 
-DOM.slider.addEventListener('click', placeHTML);
+DOM.slider.addEventListener('click', animate);
