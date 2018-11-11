@@ -8,18 +8,18 @@
     display: flex;
     flex: 1 1 50%;
 
-    & img {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      z-index: -10;
-    }
-
     &__outlet {
       position: absolute;
       top: -2.5%;
       left: 10%;
       @include picOutlet;
+    }
+
+    & img {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: -10;
     }
 
     &__title {
@@ -33,17 +33,22 @@
   &__info {
     display: flex;
     flex: 1 1 50%;
+    padding-top: 5%;
 
     &__content {
       flex: 1 1 50%;
     }
 
-    &__info {
+    &__text {
+      color: $color-white;
+    }
+
+    &__links {
       flex: 1 1 50%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-items: center;
+      align-items: flex-start;
     }
   }
 }
