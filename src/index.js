@@ -26,7 +26,7 @@ function animate() {
   } else {
     articles.forEach(i => i.classList.toggle('placeRight'));
   }
-  main.removeChild(currentArticle);
+  main.parentNode.removeChild(currentArticle);
   slider.classList.toggle('slide');
 }
 
