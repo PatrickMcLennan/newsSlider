@@ -14,9 +14,9 @@ function animate() {
   const currentArticle = DOM.main.querySelector('.currentArticle');
   const placedArticle = createHTML();
   main.appendChild(placedArticle);
+  slider.classList.toggle('slide');
   const articles = [currentArticle, placedArticle];
   const animation = slider.classList.contains('slide') ? articles.forEach(i => i.classlist.toggle('placeLeft')) : articles.forEach(i => i.classList.toggle('placeRight'));
-  slider.classList.toggle('slide');
   return animation;
 }
 

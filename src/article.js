@@ -16,15 +16,9 @@ class Article {
     this.pic = this.article.urlToImage;
   }
 
-  placeArticle() {
-    const side = this.slider.classList.contains('slide') ? 'placeRight' : 'placeLeft';
-    return side;
-  }
-
   createArticle() {
     const newArticle = document.createElement('section');
     newArticle.classList.add('article');
-    newArticle.classList.add(this.placeArticle());
     newArticle.innerHTML = `
       <div class="article__pic">
         <img src=${this.pic} alt="${this.title}">
