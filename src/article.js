@@ -13,6 +13,36 @@ class Article {
     this.url = this.article.url;
     this.pic = this.article.urlToImage;
   }
+
+  fillDOM() {
+    const newArticle = document.createElement('section');
+    newArticle.classList.add('article');
+    newArticle.innerHTML = `
+    <section class="article">
+      <div class="article__pic">
+        <img src=${this.pic} alt="${this.title}">
+        <h5 class="article__pic__outlet">${this.outlet}</h5>
+        <h4 class="article__pic__title">${this.title}</h4>
+      </div>
+
+      <div class="article__info">
+
+        <div class="article__info__content">
+        <p>
+        ${this.content}
+        </p>
+        </div>
+
+        <div class="article__info__links">
+          <h5 class="article__info__author"><span>Written By :</span> ${this.author}</h5>
+          <h5 class="article__info__date">${this.date}</h5>
+        </div>
+
+      </div>
+
+    </section>
+    `;
+  }
 }
 
 export default Article;
