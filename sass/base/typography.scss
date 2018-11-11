@@ -30,3 +30,17 @@
   color: $color-white;
   text-shadow: 0 1px $color-black;
 }
+
+@mixin infoText {
+  color: $color-white;
+  font-size: 2.75rem;
+  letter-spacing: 2.5px;
+  line-height: 120%;
+  font-weight: 300;
+
+  &:first-letter {
+    font-size: 4.5rem;
+    margin-left: 3rem;
+    font-style: italic;
+  }
+}

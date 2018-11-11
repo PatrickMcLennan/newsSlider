@@ -33,14 +33,16 @@
   &__info {
     display: flex;
     flex: 1 1 50%;
-    padding-top: 5%;
+    padding: 5% 7.5%;
 
     &__content {
       flex: 1 1 50%;
+      padding: 1rem;
+      overflow-y: scroll;
     }
 
     &__text {
-      color: $color-white;
+      @include infoText;
     }
 
     &__links {
