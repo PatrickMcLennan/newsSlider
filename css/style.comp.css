@@ -130,6 +130,12 @@ body {
         margin-bottom: 1rem;
         letter-spacing: .3rem; }
 
+.slideLeft {
+  transform: translateX(-100vw); }
+
+.slideRight {
+  transform: translateX(100vw); }
+
 .slider {
   position: absolute;
   height: 110%;

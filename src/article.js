@@ -15,7 +15,7 @@ class Article {
     this.pic = this.article.urlToImage;
   }
 
-  createElement() {
+  createArticle() {
     const newArticle = document.createElement('section');
     newArticle.classList.add('article');
     newArticle.innerHTML = `
@@ -43,10 +43,10 @@ class Article {
     return newArticle;
   }
 
-  placeElement() {
-    const slider = DOM.slider;
-    const story = this.createElement();
-    bar.classList.contains('slide') ? console.log(this) : console.log(this);
+  placeArticle() {
+    const { slider } = DOM;
+    const article = this.createArticle();
+    DOM.main.appendChild(article);
   }
 }
 

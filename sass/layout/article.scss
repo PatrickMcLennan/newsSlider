@@ -67,3 +67,10 @@
     }
   }
 }
+
+.slideLeft {
+  transform: translateX(-100vw);
+}
+.slideRight {
+  transform: translateX(100vw);
+}
