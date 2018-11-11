@@ -6,7 +6,15 @@ function create() {
   NEWS.arrayPosition += 1;
   const article = new Article(NEWS.arrayPosition);
   const html = article.pic === null ? create() : article.createArticle();
-  console.log(html);
+  return html;
 }
 
-DOM.slider.addEventListener('click', create);
+function slide() {
+  const html = create();
+  const { main, slider } = DOM;
+  const currentArticle = main.children;
+  console.log(currentArticle);
+  slider.classList.toggle('slide');
+}
+
+DOM.slider.addEventListener('click', slide);
