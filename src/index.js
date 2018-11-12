@@ -16,13 +16,13 @@ function shuffleArticles(originalArticle, placedArticle) {
 }
 
 function animate() {
-  const { slider, main } = DOM;
+  const { slider } = DOM;
   const currentArticle = DOM.main.querySelector('.currentArticle');
   const placedArticle = createHTML();
   const articles = [currentArticle, placedArticle];
-  const animation = slider.classList.contains('slide') ? articles.forEach(i => i.classlist.add('placeLeft')) : articles.forEach(i => i.classList.add('placeRight'));
-  shuffleArticles(currentArticle, placedArticle);
   slider.classList.toggle('move');
+  const animation = slider.classList.contains('move') ? articles.forEach(i => i.classList.add('placeLeft')) : articles.forEach(i => i.classList.add('placeRight'));
+  shuffleArticles(currentArticle, placedArticle);
   return animation;
 }
 
