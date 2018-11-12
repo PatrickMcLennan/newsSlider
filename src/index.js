@@ -20,9 +20,9 @@ function animate() {
   const currentArticle = DOM.main.querySelector('.currentArticle');
   const placedArticle = createHTML();
   const articles = [currentArticle, placedArticle];
-  const animation = slider.classList.contains('slide') ? articles.forEach(i => i.classlist.toggle('placeLeft')) : articles.forEach(i => i.classList.toggle('placeRight'));
+  const animation = slider.classList.contains('slide') ? articles.forEach(i => i.classlist.add('placeLeft')) : articles.forEach(i => i.classList.add('placeRight'));
   shuffleArticles(currentArticle, placedArticle);
-  slider.classList.toggle('slide');
+  slider.classList.toggle('move');
   return animation;
 }
 
