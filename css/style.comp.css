@@ -59,8 +59,8 @@ body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  transition: transform 1.7s cubic-bezier(0.77, 0, 0.175, 1);
-  transform: translateX(0); }
+  transform: translateX(0);
+  transition: transform 1.7s cubic-bezier(0.77, 0, 0.175, 1); }
   .article__pic {
     position: relative;
     display: flex;
