@@ -9,16 +9,20 @@ function createHTML() {
   return html;
 }
 
+function shuffleArticles(originalArticle, placedArticle) {
+  DOM.main.removeChild(originalArticle);
+  DOM.main.appendChild(placedArticle);
+  placedArticle.classList.add('currentArticle');
+}
+
 function animate() {
   const { slider, main } = DOM;
   const currentArticle = DOM.main.querySelector('.currentArticle');
   const placedArticle = createHTML();
-  slider.classList.toggle('slide');
   const articles = [currentArticle, placedArticle];
   const animation = slider.classList.contains('slide') ? articles.forEach(i => i.classlist.toggle('placeLeft')) : articles.forEach(i => i.classList.toggle('placeRight'));
-  main.removeChild(currentArticle);
-  main.appendChild(placedArticle);
-  placedArticle.classList.add('currentArticle');
+  shuffleArticles(currentArticle, placedArticle);
+  slider.classList.toggle('slide');
   return animation;
 }
 
