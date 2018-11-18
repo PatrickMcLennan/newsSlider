@@ -25,6 +25,6 @@ function animate() {
   };
   shuffleArticles(currentArticles, newArticles);
   return animation;
-};
+}
 
 DOM.slider.addEventListener('click', animate);

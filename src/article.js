@@ -17,7 +17,7 @@ class Article {
   createImg() {
     const img = document.createElement('img');
     const url = this.pic;
-    img.setAttribute('url', url);
+    img.setAttribute('src', url);
     img.classList.add('article__pic');
     return img;
   }
@@ -33,7 +33,7 @@ class Article {
   createAuthor() {
     const json = this.author;
     const author = document.createElement('h5');
-    author.classList.add('article__info__author');
+    author.classList.add('article__author');
     author.innerText = json;
     return author;
   }
@@ -41,14 +41,21 @@ class Article {
   createOutlet() {
     const json = this.outlet;
     const outlet = document.createElement('h4');
-    outlet.classList.add('outlet');
+    outlet.classList.add('article__outlet');
     outlet.innerText = json;
     return outlet;
   }
 
+  createDate() {
+    const json = this.date;
+    const date = document.createElement('h5');
+    date.innerText = json;
+    return date;
+  }
+
   createArticle() {
     const article = document.createElement('article');
-    const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet()];
+    const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
     DOM.main.appendChild(article);
     article.classList.add('article');
     elements.forEach(i => article.appendChild(i));

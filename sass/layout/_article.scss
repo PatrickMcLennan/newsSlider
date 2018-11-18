@@ -2,54 +2,23 @@
   display: flex;
   flex: 0 1 30vw;
   flex-direction: column;
+  justify-content: space-evenly;
   background: #e3e3e3;
   padding: 1rem;
   border: 1px solid $color-black;
 
   &__pic {
-    position: relative;
-    display: flex;
-    flex: 1 1 50%;
-
-    &__outlet {
-      position: absolute;
-      top: -2.5%;
-      left: 10%;
-      @include picOutlet;
-    }
-
-    & img {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      z-index: -10;
-    }
-
-    &__title {
-      position: absolute;
-      bottom: -2.5%;
-      right: 10%;
-      @include picTitle;
-    }
+    height: 35%;
+    width: 100%;
+    object-fit: cover;
   }
 
-  &__info {
-    display: flex;
-    flex: 1 1 60%;
-    padding: 5% 7.5%;
+  &__title {
+    @include article__title(desktop);
+  }
 
-    &__date {
-      @include infoDate;
-      display: flex;
-      flex-direction: column;
-    }
-
-    &__author {
-      @include infoAuthor;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  &__outlet {
+    @include article__outlet(desktop);
   }
 }
 

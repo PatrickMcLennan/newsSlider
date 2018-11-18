@@ -6,11 +6,11 @@
   align-items: flex-end;
 
   &__header {
-    @include welcomeHeader;
+    @include welcome__header(desktop);
   }
 
   &__secondary {
-    @include welcomeSecondary;
+    @include welcome__secondary(desktop);
   }
 
   & span {
