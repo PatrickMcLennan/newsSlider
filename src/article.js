@@ -57,12 +57,6 @@ class Article {
     this.title = this.article.title;
   }
 
-  createArticle() {
-    const article = document.createElement('article');
-    DOM.main.appendChild(article);
-    return article;
-  }
-
   createImg() {
     const img = document.createElement('img');
     const url = this.pic;
@@ -70,7 +64,8 @@ class Article {
     return img;
   }
 
-  createText(json,) {
-    const
+  createTitle() {
+    const json = this.title;
+    const title = document.createElement('')
   }
 }
