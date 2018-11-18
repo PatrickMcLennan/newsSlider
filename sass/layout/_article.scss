@@ -1,0 +1,40 @@
+.article {
+  display: flex;
+  flex: 0 1 30vw;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: #e3e3e3;
+  padding: 1rem;
+  border: 1px solid $color-black;
+
+  &__pic {
+    height: 35%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    @include article__title(desktop);
+  }
+
+  &__outlet {
+    @include article__outlet(desktop);
+  }
+  &__author {
+    @include article__author(desktop);
+  }
+  &__date {
+    @include article__date(desktop);
+  }
+}
+
+.currentArticle {
+  transform: scale(0);
+  opacity: 0;
+  transition: all 1.7s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.fadeIn {
+  transform: scale(1);
+  opacity: 1;
+}

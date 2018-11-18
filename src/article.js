@@ -7,38 +7,62 @@ class Article {
     this.slider = DOM.slider;
     // ARTICLE INFO
     this.author = this.article.author;
-    this.content = this.article.content;
-    this.description = this.article.description;
-    this.date = this.article.date;
+    this.date = this.article.publishedAt;
     this.outlet = this.article.source.name;
-    this.title = this.article.title;
     this.url = this.article.url;
     this.pic = this.article.urlToImage;
+    this.title = this.article.title;
+  }
+
+  createImg() {
+    const img = document.createElement('img');
+    const url = this.pic;
+    img.setAttribute('src', url);
+    img.classList.add('article__pic');
+    return img;
+  }
+
+  createTitle() {
+    const json = this.title;
+    const title = document.createElement('h3');
+    title.classList.add('article__title');
+    title.innerText = json;
+    return title;
+  }
+
+  createAuthor() {
+    const json = this.author;
+    const author = document.createElement('h5');
+    author.classList.add('article__author');
+    author.innerText = json;
+    return author;
+  }
+
+  createOutlet() {
+    const json = this.outlet;
+    const outlet = document.createElement('h4');
+    outlet.classList.add('article__outlet');
+    outlet.innerText = json;
+    return outlet;
+  }
+
+  createDate() {
+    const json = this.date;
+    const month = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec'][(json.substring(5, 7)) - 1];
+    const year = `20${json.substring(2, 4)}`;
+    const day = json.substring(8, 10);
+    const date = document.createElement('h5');
+    date.innerText = `${month} ${day}, ${year}`;
+    return date;
   }
 
   createArticle() {
-    const newArticle = document.createElement('section');
-    newArticle.classList.add('article');
-    newArticle.innerHTML = `
-      <div class="article__pic">
-        <img src=${this.pic} alt="${this.title}">
-        <h5 class="article__pic__outlet">${this.outlet}</h5>
-        <h4 class="article__pic__title">${this.title}</h4>
-      </div>
-
-      <div class="article__info">
-        <div class="article__info__content">
-        <p>
-        ${this.content}
-        </p>
-        </div>
-        <div class="article__info__links">
-          <h5 class="article__info__author"><span>Written By :</span> ${this.author}</h5>
-          <h5 class="article__info__date">${this.date}</h5>
-        </div>
-      </div>
-    `;
-    return newArticle;
+    const article = document.createElement('article');
+    const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
+    article.classList.add('article');
+    DOM.main.appendChild(article);
+    elements.forEach(i => article.appendChild(i));
+    return article;
   }
 }
 

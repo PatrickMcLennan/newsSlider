@@ -1,0 +1,45 @@
+
+// WELCOME
+@mixin welcome__header($breakpoint) {
+  @if $breakpoint == desktop {
+    font-size: 7.5rem;
+    font-weight: 100;
+    letter-spacing: .75rem;
+  }
+}
+@mixin welcome__secondary($breakpoint) {
+  color: rgba($color-white, .5);
+  @if $breakpoint == desktop {
+    font-size: 3rem;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+  }
+}
+
+// ARTICLE
+@mixin article__title($breakpoint) {
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 125%;
+  @if $breakpoint == desktop {
+    font-size: 2rem;
+    letter-spacing: .25rem;
+  }
+}
+@mixin article__outlet($breakpoint) {
+  @if $breakpoint == desktop {
+    font-size: 1.75rem;
+  }
+}
+@mixin article__author($breakpoint) {
+  font-style: italic;
+  @if $breakpoint == desktop {
+    font-size: 1.5rem;
+  }
+}
+@mixin article__date($breakpoint) {
+  @if $breakpoint == desktop {
+    font-size: 1rem;
+  }
+}
