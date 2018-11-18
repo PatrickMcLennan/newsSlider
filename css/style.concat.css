@@ -74,6 +74,11 @@ main {
     letter-spacing: .25rem; }
   .article__outlet {
     font-size: 1.75rem; }
+  .article__author {
+    font-style: italic;
+    font-size: 1.5rem; }
+  .article__date {
+    font-size: 1rem; }
 
 .currentArticle {
   transform: scale(0);

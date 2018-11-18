@@ -7,8 +7,8 @@ class Article {
     this.slider = DOM.slider;
     // ARTICLE INFO
     this.author = this.article.author;
-    this.date = this.article.date;
-    this.outlet = this.article.name;
+    this.date = this.article.publishedAt;
+    this.outlet = this.article.source.name;
     this.url = this.article.url;
     this.pic = this.article.urlToImage;
     this.title = this.article.title;

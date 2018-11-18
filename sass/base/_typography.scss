@@ -32,3 +32,14 @@
     font-size: 1.75rem;
   }
 }
+@mixin article__author($breakpoint) {
+  font-style: italic;
+  @if $breakpoint == desktop {
+    font-size: 1.5rem;
+  }
+}
+@mixin article__date($breakpoint) {
+  @if $breakpoint == desktop {
+    font-size: 1rem;
+  }
+}

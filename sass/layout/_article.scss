@@ -20,6 +20,12 @@
   &__outlet {
     @include article__outlet(desktop);
   }
+  &__author {
+    @include article__author(desktop);
+  }
+  &__date {
+    @include article__date(desktop);
+  }
 }
 
 .currentArticle {
