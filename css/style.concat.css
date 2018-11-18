@@ -48,7 +48,10 @@ main {
   justify-content: space-evenly;
   background: #e3e3e3;
   padding: 1rem;
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 1.7s cubic-bezier(0.77, 0, 0.175, 1); }
   .article__pic {
     height: 35%;
     width: 100%;
@@ -77,7 +80,8 @@ main {
 
 .fadeIn {
   transform: scale(1);
-  opacity: 1; }
+  opacity: 1;
+  transition: all 1.7s cubic-bezier(0.77, 0, 0.175, 1); }
 
 .slider {
   position: absolute;
