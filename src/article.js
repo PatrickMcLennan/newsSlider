@@ -48,16 +48,19 @@ class Article {
 
   createDate() {
     const json = this.date;
+    const month = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec'][(json.substring(5, 7)) - 1];
+    const year = `20${json.substring(2, 4)}`;
+    const day = json.substring(8, 10);
     const date = document.createElement('h5');
-    date.innerText = json;
+    date.innerText = `${month} ${day}, ${year}`;
     return date;
   }
 
   createArticle() {
     const article = document.createElement('article');
     const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
-    DOM.main.appendChild(article);
     article.classList.add('article');
+    DOM.main.appendChild(article);
     elements.forEach(i => article.appendChild(i));
     return article;
   }
