@@ -9,21 +9,22 @@ function createHTML() {
   return html;
 }
 
-function shuffleArticles(originalArticle, placedArticle) {
-  DOM.main.removeChild(originalArticle);
-  DOM.main.appendChild(placedArticle);
-  placedArticle.classList.add('currentArticle');
+function shuffleArticles(originalArticles, newArticles) {
+  originalArticles.forEach(i => document.removeChild(i));
+  newArticles.forEach(i => i.classList.add('currentArticle'));
 }
 
 function animate() {
   const { slider } = DOM;
-  const currentArticle = DOM.main.querySelector('.currentArticle');
-  const placedArticle = createHTML();
-  const articles = [currentArticle, placedArticle];
+  const currentArticles = [...DOM.main.querySelectorAll('.currentArticle')];
+  const newArticles = [createHTML(), createHTML()];
   slider.classList.toggle('move');
-  const animation = slider.classList.contains('move') ? articles.forEach(i => i.classList.add('placeLeft')) : articles.forEach(i => i.classList.add('placeRight'));
-  shuffleArticles(currentArticle, placedArticle);
+  const animation = () => {
+    currentArticles.forEach(i => i.classList.toggle('fadeIn'));
+    newArticles.forEach(i => i.classList.toggle('fadeIn'));
+  };
+  shuffleArticles(currentArticles, newArticles);
   return animation;
-}
+};
 
 DOM.slider.addEventListener('click', animate);
