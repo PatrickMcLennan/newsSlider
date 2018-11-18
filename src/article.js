@@ -49,8 +49,9 @@ class Article {
   createArticle() {
     const article = document.createElement('article');
     const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet()];
-    elements.forEach(i => article.appendChild(i));
     DOM.main.appendChild(article);
+    article.classList.add('article');
+    elements.forEach(i => article.appendChild(i));
     return article;
   }
 }
