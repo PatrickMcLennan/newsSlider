@@ -9,23 +9,27 @@ function createHTML() {
   return html;
 }
 
-function animate() {
-  const { slider } = DOM;
-  const currentArticles = [...DOM.main.querySelectorAll('.currentArticle')];
+function inWithTheNew(parent) {
   const newArticles = [createHTML(), createHTML()];
-  slider.classList.toggle('move');
-  currentArticles.forEach((i) => {
+  DOM.main.removeChild(parent);
+  newArticles.forEach((i) => {
+    DOM.main.appendChild(i);
     i.classList.toggle('fadeIn');
-  });
-  currentArticles.addEventListener('transitionend', () => {
-    newArticles.forEach((i) => {
-      i.classList.add('fadeIn');
-      i.classList.add('currentArticle');
-    });
+    i.classList.toggle('currentClass');
   });
 }
 
-DOM.slider.addEventListener('click', animate);
+function outWithTheOld() {
+  const { slider } = DOM;
+  const currentArticles = [...DOM.main.querySelectorAll('.currentArticle')];
+  slider.classList.toggle('move');
+  currentArticles.forEach((i) => {
+    i.addEventListener('transitionend', inWithTheNew(i));
+    i.classList.toggle('fadeIn');
+  });
+}
+
+DOM.slider.addEventListener('click', outWithTheOld);
 
 
 // I'M REMOVING THE ELEMENTS BEFORE THE "TRANSITIONEND" EVENT FIRES OFF
