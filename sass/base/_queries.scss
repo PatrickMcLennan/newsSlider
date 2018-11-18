@@ -1,12 +1,4 @@
-
-// MEDIA QUERY MANAGER
 /*
-
-        BIG MEDIA QUERIES ALWAYS GO FIRST FOR "DESKTOP-FIRST", SMALL MEDIA QUERIES FIRST FOR "MOBILE
-        -FIRST"
-        their styles apply to ALL sizes smaller or bigger (depending on "min/max")
-         as well, so specificity is needed to select the most relevant selector
-         placed LAST in applicable code.
 
 0 - 600px:     PHONE
 600 - 900px:   TABLET (PORTRAIT)
@@ -14,15 +6,8 @@
 1200 - 1800px: DESKTOP (this is where normal "desktop-first" styles apply)
 1800px+:       BIG DESKTOP
 
-$BREAKPOINT ARGUMENT CHOICES:
- - phone
- - tab-port
- - tab-land
- - big-desktop
-
- ORDER: base + typography,   general layout + grid, page layout, components
-
  1em = 16px
+
 */
 
 @mixin respond($breakpoint) {

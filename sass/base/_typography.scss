@@ -21,9 +21,9 @@
 @mixin article__title($breakpoint) {
   font-style: italic;
   text-transform: uppercase;
-  line-height: 125%;
   @if $breakpoint == desktop {
     font-size: 2rem;
+    line-height: 125%;
     letter-spacing: .25rem;
   }
 }
@@ -39,6 +39,7 @@
   }
 }
 @mixin article__date($breakpoint) {
+  text-transform: uppercase;
   @if $breakpoint == desktop {
     font-size: 1rem;
   }

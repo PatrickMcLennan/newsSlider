@@ -1,6 +1,6 @@
 .article {
   display: flex;
-  flex: 0 1 30vw;
+  flex: 0 1 27.5vw;
   flex-direction: column;
   justify-content: space-evenly;
   background: #e3e3e3;
@@ -22,9 +22,11 @@
   }
   &__author {
     @include article__author(desktop);
+    align-self: flex-end;
   }
   &__date {
     @include article__date(desktop);
+    align-self: center;
   }
 }
 

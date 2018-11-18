@@ -1,26 +1,13 @@
 /*
 
-        BIG MEDIA QUERIES ALWAYS GO FIRST FOR "DESKTOP-FIRST", SMALL MEDIA QUERIES FIRST FOR "MOBILE
-        -FIRST"
-        their styles apply to ALL sizes smaller or bigger (depending on "min/max")
-         as well, so specificity is needed to select the most relevant selector
-         placed LAST in applicable code.
-
 0 - 600px:     PHONE
 600 - 900px:   TABLET (PORTRAIT)
 900 - 1200px:  TABLET (LANDSCAPE)
 1200 - 1800px: DESKTOP (this is where normal "desktop-first" styles apply)
 1800px+:       BIG DESKTOP
 
-$BREAKPOINT ARGUMENT CHOICES:
- - phone
- - tab-port
- - tab-land
- - big-desktop
-
- ORDER: base + typography,   general layout + grid, page layout, components
-
  1em = 16px
+
 */
 *,
 *::before,
@@ -56,7 +43,7 @@ main {
 
 .article {
   display: flex;
-  flex: 0 1 30vw;
+  flex: 0 1 27.5vw;
   flex-direction: column;
   justify-content: space-evenly;
   background: #e3e3e3;
@@ -69,16 +56,19 @@ main {
   .article__title {
     font-style: italic;
     text-transform: uppercase;
-    line-height: 125%;
     font-size: 2rem;
+    line-height: 125%;
     letter-spacing: .25rem; }
   .article__outlet {
     font-size: 1.75rem; }
   .article__author {
     font-style: italic;
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    align-self: flex-end; }
   .article__date {
-    font-size: 1rem; }
+    text-transform: uppercase;
+    font-size: 1rem;
+    align-self: center; }
 
 .currentArticle {
   transform: scale(0);

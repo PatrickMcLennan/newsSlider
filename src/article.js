@@ -52,6 +52,7 @@ class Article {
     const year = `20${json.substring(2, 4)}`;
     const day = json.substring(8, 10);
     const date = document.createElement('h5');
+    date.classList.add('article__date');
     date.innerText = `${month} ${day}, ${year}`;
     return date;
   }
@@ -59,8 +60,8 @@ class Article {
   createArticle() {
     const article = document.createElement('article');
     const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
-    article.classList.add('article');
     DOM.main.appendChild(article);
+    article.classList.add('article');
     elements.forEach(i => article.appendChild(i));
     return article;
   }
