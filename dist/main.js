@@ -1,1 +1,136 @@
-!function(t){var e={};function i(r){if(e[r])return e[r].exports;var n=e[r]={i:r,l:!1,exports:{}};return t[r].call(n.exports,n,n.exports,i),n.l=!0,n.exports}i.m=t,i.c=e,i.d=function(t,e,r){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)i.d(r,n,function(e){return t[e]}.bind(null,n));return r},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=0)}([function(t,e,i){"use strict";i.r(e);var r={slider:document.querySelector(".slider"),main:document.querySelector("main"),currentArticle:document.querySelector(".currentArticle"),heading:document.querySelector(".heading"),pic:document.querySelector(".heading__pic img"),title:document.querySelector(".heading__header")};const n={stories:[],arrayPosition:-1,apiKey:"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903"};(async()=>{const t=(await async function(){return(await fetch(n.apiKey)).json()}()).articles;n.stories=[...t]})();var c=n;var s=class{constructor(t){this.article=c.stories[t],this.slider=r.slider,this.author=this.article.author,this.content=this.article.content,this.description=this.article.description,this.date=this.article.date,this.outlet=this.article.source.name,this.title=this.article.title,this.url=this.article.url,this.pic=this.article.urlToImage}createArticle(){const t=document.createElement("section");return t.classList.add("article"),t.innerHTML=`\n      <div class="article__pic">\n        <img src=${this.pic} alt="${this.title}">\n        <h5 class="article__pic__outlet">${this.outlet}</h5>\n        <h4 class="article__pic__title">${this.title}</h4>\n      </div>\n\n      <div class="article__info">\n        <div class="article__info__content">\n        <p>\n        ${this.content}\n        </p>\n        </div>\n        <div class="article__info__links">\n          <h5 class="article__info__author"><span>Written By :</span> ${this.author}</h5>\n          <h5 class="article__info__date">${this.date}</h5>\n        </div>\n      </div>\n    `,t}};r.slider.addEventListener("click",function(){const{slider:t}=r,e=r.main.querySelector(".currentArticle"),i=function t(){c.arrayPosition+=1;const e=new s(c.arrayPosition);return null===e.pic?t():e.createArticle()}(),n=[e,i];t.classList.toggle("move");const a=t.classList.contains("move")?n.forEach(t=>t.classList.add("placeLeft")):n.forEach(t=>t.classList.add("placeRight"));return function(t,e){r.main.removeChild(t),r.main.appendChild(e),e.classList.add("currentArticle")}(e,i),a})}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/article.js":
+/*!************************!*\
+  !*** ./src/article.js ***!
+  \************************/
+/*! no exports provided */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module parse failed: Unexpected token (75:2)\\nYou may need an appropriate loader to handle this file type.\\n|   createText(json,) {\\n|     const\\n>   }\\n| }\\n| \");\n\n//# sourceURL=webpack:///./src/article.js?");
+
+/***/ }),
+
+/***/ "./src/dom.js":
+/*!********************!*\
+  !*** ./src/dom.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst DOM = {\n  slider: document.querySelector('.slider'),\n  main: document.querySelector('main'),\n  currentArticle: document.querySelector('.currentArticle'),\n  heading: document.querySelector('.heading'),\n  pic: document.querySelector('.heading__pic img'),\n  title: document.querySelector('.heading__header'),\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (DOM);\n\n\n//# sourceURL=webpack:///./src/dom.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n/* harmony import */ var _news__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./news */ \"./src/news.js\");\n/* harmony import */ var _article__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./article */ \"./src/article.js\");\n\n\n\n\nfunction createHTML() {\n  _news__WEBPACK_IMPORTED_MODULE_1__[\"default\"].arrayPosition += 1;\n  const article = new _article__WEBPACK_IMPORTED_MODULE_2__[\"default\"](_news__WEBPACK_IMPORTED_MODULE_1__[\"default\"].arrayPosition);\n  const html = article.pic === null ? createHTML() : article.createArticle();\n  return html;\n}\n\nfunction shuffleArticles(originalArticle, placedArticle) {\n  _dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"].main.removeChild(originalArticle);\n  _dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"].main.appendChild(placedArticle);\n  placedArticle.classList.add('currentArticle');\n}\n\nfunction animate() {\n  const { slider } = _dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n  const currentArticle = _dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"].main.querySelector('.currentArticle');\n  const placedArticle = createHTML();\n  const articles = [currentArticle, placedArticle];\n  slider.classList.toggle('move');\n  const animation = slider.classList.contains('move') ? articles.forEach(i => i.classList.add('placeLeft')) : articles.forEach(i => i.classList.add('placeRight'));\n  shuffleArticles(currentArticle, placedArticle);\n  return animation;\n}\n\n_dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"].slider.addEventListener('click', animate);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/news.js":
+/*!*********************!*\
+  !*** ./src/news.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst NEWS = {\n  stories: [],\n  arrayPosition: -1,\n  apiKey: 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903',\n};\n\nasync function apiCall() {\n  const data = await fetch(NEWS.apiKey);\n  const json = data.json();\n  return json;\n}\n\n(async () => {\n  const json = await apiCall();\n  const news = json.articles;\n  NEWS.stories = [...news];\n})();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (NEWS);\n\n\n//# sourceURL=webpack:///./src/news.js?");
+
+/***/ })
+
+/******/ });
