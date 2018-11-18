@@ -1,52 +1,9 @@
 import NEWS from './news';
 import DOM from './dom';
 
-// class Article {
-//   constructor(position) {
-//     this.article = NEWS.stories[position];
-//     this.slider = DOM.slider;
-//     // ARTICLE INFO
-//     this.author = this.article.author;
-//     this.content = this.article.content;
-//     this.description = this.article.description;
-//     this.date = this.article.date;
-//     this.outlet = this.article.source.name;
-//     this.title = this.article.title;
-//     this.url = this.article.url;
-//     this.pic = this.article.urlToImage;
-//   }
-
-//   createArticle() {
-//     const newArticle = document.createElement('article');
-//     newArticle.innerHTML = `
-//       <div class="article__pic">
-//         <img src=${this.pic} alt="${this.title}">
-//         <h5 class="article__pic__outlet">${this.outlet}</h5>
-//         <h4 class="article__pic__title">${this.title}</h4>
-//       </div>
-
-//       <div class="article__info">
-//         <div class="article__info__content">
-//         <p>
-//         ${this.content}
-//         </p>
-//         </div>
-//         <div class="article__info__links">
-//           <h5 class="article__info__author"><span>Written By :</span> ${this.author}</h5>
-//           <h5 class="article__info__date">${this.date}</h5>
-//         </div>
-//       </div>
-//     `;
-//     return newArticle;
-//   }
-// }
-
-// export default Article;
-
-
 class Article {
   constructor(position) {
-    this.article = [NEWS.stories[position]];
+    this.article = NEWS.stories[position];
     this.slider = DOM.slider;
     // ARTICLE INFO
     this.author = this.article.author;
@@ -61,11 +18,41 @@ class Article {
     const img = document.createElement('img');
     const url = this.pic;
     img.setAttribute('url', url);
+    img.classList.add('article__pic');
     return img;
   }
 
   createTitle() {
     const json = this.title;
-    const title = document.createElement('')
+    const title = document.createElement('h3');
+    title.classList.add('article__title');
+    title.innerText = json;
+    return title;
+  }
+
+  createAuthor() {
+    const json = this.author;
+    const author = document.createElement('h5');
+    author.classList.add('article__info__author');
+    author.innerText = json;
+    return author;
+  }
+
+  createOutlet() {
+    const json = this.outlet;
+    const outlet = document.createElement('h4');
+    outlet.classList.add('outlet');
+    outlet.innerText = json;
+    return outlet;
+  }
+
+  createArticle() {
+    const article = document.createElement('article');
+    const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet()];
+    elements.forEach(i => article.appendChild(i));
+    DOM.main.appendChild(article);
+    return article;
   }
 }
+
+export default Article;

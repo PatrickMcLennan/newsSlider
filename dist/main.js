@@ -90,10 +90,11 @@
 /*!************************!*\
   !*** ./src/article.js ***!
   \************************/
-/*! no exports provided */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (75:2)\\nYou may need an appropriate loader to handle this file type.\\n|   createText(json,) {\\n|     const\\n>   }\\n| }\\n| \");\n\n//# sourceURL=webpack:///./src/article.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./news */ \"./src/news.js\");\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\n\n\nclass Article {\n  constructor(position) {\n    this.article = _news__WEBPACK_IMPORTED_MODULE_0__[\"default\"].stories[position];\n    this.slider = _dom__WEBPACK_IMPORTED_MODULE_1__[\"default\"].slider;\n    // ARTICLE INFO\n    this.author = this.article.author;\n    this.date = this.article.date;\n    this.outlet = this.article.name;\n    this.url = this.article.url;\n    this.pic = this.article.urlToImage;\n    this.title = this.article.title;\n  }\n\n  createImg() {\n    const img = document.createElement('img');\n    const url = this.pic;\n    img.setAttribute('url', url);\n    img.classList.add('article__pic');\n    return img;\n  }\n\n  createTitle() {\n    const json = this.title;\n    const title = document.createElement('h3');\n    title.classList.add('article__title');\n    title.innerText = json;\n    return title;\n  }\n\n  createAuthor() {\n    const json = this.author;\n    const author = document.createElement('h5');\n    author.classList.add('article__info__author');\n    author.innerText = json;\n    return author;\n  }\n\n  createOutlet() {\n    const json = this.outlet;\n    const outlet = document.createElement('h4');\n    outlet.classList.add('outlet');\n    outlet.innerText = json;\n    return outlet;\n  }\n\n  createArticle() {\n    const article = document.createElement('article');\n    const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet()];\n    elements.forEach(i => article.appendChild(i));\n    _dom__WEBPACK_IMPORTED_MODULE_1__[\"default\"].main.appendChild(article);\n    return article;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Article);\n\n\n//# sourceURL=webpack:///./src/article.js?");
 
 /***/ }),
 
