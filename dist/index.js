@@ -23,16 +23,27 @@ function createHTML() {
   return html;
 }
 
-function outWithTheOld() {
+function animate() {
   var slider = _dom2.default.slider;
 
   var currentArticles = [].concat(_toConsumableArray(_dom2.default.main.querySelectorAll('.currentArticle')));
+  var newArticles = [createHTML(), createHTML()];
+  var timing = slider.style.transitionDuration.value;
   slider.classList.toggle('move');
   currentArticles.forEach(function (i) {
-    return i.classList.toggle('fadeIn');
+    i.classList.toggle('fadeIn');
   });
+  setTimeout(function () {
+    currentArticles.forEach(function (i) {
+      return _dom2.default.main.removeChild(i);
+    });
+    newArticles.forEach(function (i) {
+      i.classList.toggle('fadeIn');
+      i.classList.toggle('currentArticle');
+    });
+  }, timing);
 }
 
-_dom2.default.slider.addEventListener('click', outWithTheOld);
+_dom2.default.slider.addEventListener('click', animate);
 
 // I'M REMOVING THE ELEMENTS BEFORE THE "TRANSITIONEND" EVENT FIRES OFF
