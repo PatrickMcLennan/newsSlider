@@ -9,25 +9,19 @@ function createHTML() {
   return html;
 }
 
-function animateIn() {
-  const articles = [createHTML(), createHTML()];
-  articles.forEach((i) => {
-    DOM.main.appendChild(i);
-    i.classList.toggle('fadeIn');
-    i.classList.toggle('currentArticle');
-  });
-}
-
 function animateOut() {
   const { slider } = DOM;
   const currentArticles = [...DOM.main.querySelectorAll('.currentArticle')];
-  // const newArticles = [createHTML(), createHTML()];
   slider.classList.toggle('move');
   currentArticles.forEach(i => i.classList.toggle('fadeIn'));
   setTimeout(() => {
     currentArticles.forEach(i => i.remove());
-    animateIn();
-  }, 425);
+    const newArticles = [createHTML(), createHTML()];
+    newArticles.forEach((i) => {
+      i.classList.add('fadeIn');
+      i.classList.add('currentArticle');
+    });
+  }, 800);
 }
 
 DOM.slider.addEventListener('click', animateOut);
