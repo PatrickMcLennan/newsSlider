@@ -34,7 +34,7 @@ class Article {
     const json = this.author;
     const author = document.createElement('h5');
     author.classList.add('article__author');
-    author.innerText = json;
+    author.innerText = `- ${json}`;
     return author;
   }
 
@@ -60,8 +60,11 @@ class Article {
   createArticle() {
     const article = document.createElement('article');
     const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
+    elements.forEach(i => article.appendChild(i));
     DOM.main.appendChild(article);
     article.classList.add('article');
+    article.classList.add('fadeIn');
+    article.classList.add('currentArticle');
     elements.forEach(i => article.appendChild(i));
     return article;
   }

@@ -35,11 +35,8 @@ function animateOut() {
     currentArticles.forEach(function (i) {
       return i.remove();
     });
-    var newArticles = [createHTML(), createHTML()];
-    newArticles.forEach(function (i) {
-      i.classList.add('fadeIn');
-      i.classList.add('currentArticle');
-    });
+    createHTML();
+    createHTML();
   }, 800);
 }
 

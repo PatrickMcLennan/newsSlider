@@ -16,11 +16,8 @@ function animateOut() {
   currentArticles.forEach(i => i.classList.toggle('fadeIn'));
   setTimeout(() => {
     currentArticles.forEach(i => i.remove());
-    const newArticles = [createHTML(), createHTML()];
-    newArticles.forEach((i) => {
-      i.classList.add('fadeIn');
-      i.classList.add('currentArticle');
-    });
+    createHTML();
+    createHTML();
   }, 800);
 }
 

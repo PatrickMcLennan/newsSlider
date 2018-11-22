@@ -30,6 +30,8 @@
 @mixin article__outlet($breakpoint) {
   @if $breakpoint == desktop {
     font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: .25rem;
   }
 }
 @mixin article__author($breakpoint) {

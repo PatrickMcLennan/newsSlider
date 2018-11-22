@@ -57,7 +57,7 @@ var Article = function () {
       var json = this.author;
       var author = document.createElement('h5');
       author.classList.add('article__author');
-      author.innerText = json;
+      author.innerText = '- ' + json;
       return author;
     }
   }, {
@@ -86,8 +86,13 @@ var Article = function () {
     value: function createArticle() {
       var article = document.createElement('article');
       var elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
+      elements.forEach(function (i) {
+        return article.appendChild(i);
+      });
       _dom2.default.main.appendChild(article);
       article.classList.add('article');
+      article.classList.add('fadeIn');
+      article.classList.add('currentArticle');
       elements.forEach(function (i) {
         return article.appendChild(i);
       });
