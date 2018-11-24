@@ -4,6 +4,9 @@ import Article from './article';
 
 function createHTML() {
   NEWS.arrayPosition += 1;
+  if (NEWS.arrayPosition >= NEWS.stories.length) {
+    NEWS.arrayPosition = 0;
+  }
   const article = new Article(NEWS.arrayPosition);
   const html = article.pic === null ? createHTML() : article.createArticle();
   return html;

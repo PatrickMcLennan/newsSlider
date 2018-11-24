@@ -18,13 +18,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 function createHTML() {
   _news2.default.arrayPosition += 1;
+  if (_news2.default.arrayPosition >= _news2.default.stories.length) {
+    _news2.default.arrayPosition = 0;
+  }
   var article = new _article2.default(_news2.default.arrayPosition);
   var html = article.pic === null ? createHTML() : article.createArticle();
-  if (_news2.default.arrayPosition >= _news2.default.stories.length) {
-    _news2.default.arrayPosition === 0;
-  } else {
-    _news2.default.arrayPosition += 1;
-  }
   return html;
 }
 
