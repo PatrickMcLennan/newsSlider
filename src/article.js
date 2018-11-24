@@ -1,6 +1,7 @@
 import NEWS from './news';
 import DOM from './dom';
 
+
 class Article {
   constructor(position) {
     this.article = NEWS.stories[position];
@@ -19,6 +20,7 @@ class Article {
     const url = this.pic;
     img.setAttribute('src', url);
     img.classList.add('article__pic');
+    img.style.animationDelay = `${Math.random() * 1}s`;
     return img;
   }
 
@@ -28,6 +30,7 @@ class Article {
     const span = document.createElement('span');
     title.appendChild(span);
     title.classList.add('article__title');
+    span.style.animationDelay = `${Math.random() * 1}s`;
     span.innerText = json;
     return title;
   }
@@ -45,6 +48,7 @@ class Article {
     const author = document.createElement('h5');
     author.classList.add('article__author');
     author.innerText = `- ${json}`;
+    author.style.animationDelay = `${Math.random() * 1}s`;
     return author;
   }
 
@@ -53,6 +57,7 @@ class Article {
     const outlet = document.createElement('h4');
     outlet.classList.add('article__outlet');
     outlet.innerText = json;
+    outlet.style.animationDelay = `${Math.random() * 1}s`;
     return outlet;
   }
 
@@ -64,18 +69,22 @@ class Article {
     const date = document.createElement('h5');
     date.classList.add('article__date');
     date.innerText = `${month} ${day}, ${year}`;
+    date.style.animationDelay = `${Math.random() * 1}s`;
     return date;
   }
 
   createArticle() {
     const article = document.createElement('article');
     const elements = [this.createFigure(), this.createAuthor(), this.createOutlet(), this.createDate()];
-    elements.forEach(i => article.appendChild(i));
     DOM.main.appendChild(article);
     article.classList.add('article');
     article.classList.add('fadeIn');
     article.classList.add('currentArticle');
-    elements.forEach(i => article.appendChild(i));
+    elements.forEach((i) => {
+      article.appendChild(i);
+      i.style.animationDelay = `${Math.random() * 1}s`;
+      i.classList.add('animateShadowsIn');
+    });
     return article;
   }
 }

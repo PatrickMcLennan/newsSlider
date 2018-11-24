@@ -40,6 +40,7 @@ var Article = function () {
       var url = this.pic;
       img.setAttribute('src', url);
       img.classList.add('article__pic');
+      img.style.animationDelay = Math.random() * 1 + 's';
       return img;
     }
   }, {
@@ -50,6 +51,7 @@ var Article = function () {
       var span = document.createElement('span');
       title.appendChild(span);
       title.classList.add('article__title');
+      span.style.animationDelay = Math.random() * 1 + 's';
       span.innerText = json;
       return title;
     }
@@ -71,6 +73,7 @@ var Article = function () {
       var author = document.createElement('h5');
       author.classList.add('article__author');
       author.innerText = '- ' + json;
+      author.style.animationDelay = Math.random() * 1 + 's';
       return author;
     }
   }, {
@@ -80,6 +83,7 @@ var Article = function () {
       var outlet = document.createElement('h4');
       outlet.classList.add('article__outlet');
       outlet.innerText = json;
+      outlet.style.animationDelay = Math.random() * 1 + 's';
       return outlet;
     }
   }, {
@@ -92,6 +96,7 @@ var Article = function () {
       var date = document.createElement('h5');
       date.classList.add('article__date');
       date.innerText = month + ' ' + day + ', ' + year;
+      date.style.animationDelay = Math.random() * 1 + 's';
       return date;
     }
   }, {
@@ -99,15 +104,14 @@ var Article = function () {
     value: function createArticle() {
       var article = document.createElement('article');
       var elements = [this.createFigure(), this.createAuthor(), this.createOutlet(), this.createDate()];
-      elements.forEach(function (i) {
-        return article.appendChild(i);
-      });
       _dom2.default.main.appendChild(article);
       article.classList.add('article');
       article.classList.add('fadeIn');
       article.classList.add('currentArticle');
       elements.forEach(function (i) {
-        return article.appendChild(i);
+        article.appendChild(i);
+        i.style.animationDelay = Math.random() * 1 + 's';
+        i.classList.add('animateShadowsIn');
       });
       return article;
     }
