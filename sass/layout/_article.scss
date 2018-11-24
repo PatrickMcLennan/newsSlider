@@ -34,8 +34,7 @@
   &__title {
     position: absolute;
     bottom: -10%;
-    transform: rotateY(7.5deg);
-
+    transform: rotateY(12.5deg);
   }
 
   &__title span {
@@ -69,16 +68,4 @@
 .fadeOut {
   transform: scale(0);
   opacity: 0;
-}
-
-@keyframes hoverAnimation {
-  0% {
-    transform: scale(1) rotateZ(0);
-  }
-  10% {
-    transform: scale(1) rotateZ(10deg);
-  }
-  100% {
-    transform: scale(1.05) rotateZ(0)
-  }
 }

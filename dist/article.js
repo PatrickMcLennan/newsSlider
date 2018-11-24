@@ -110,7 +110,6 @@ var Article = function () {
       article.classList.add('currentArticle');
       elements.forEach(function (i) {
         article.appendChild(i);
-        i.style.animationDelay = Math.random() * 1 + 's';
         i.classList.add('animateShadowsIn');
       });
       return article;

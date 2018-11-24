@@ -82,7 +82,6 @@ class Article {
     article.classList.add('currentArticle');
     elements.forEach((i) => {
       article.appendChild(i);
-      i.style.animationDelay = `${Math.random() * 1}s`;
       i.classList.add('animateShadowsIn');
     });
     return article;
