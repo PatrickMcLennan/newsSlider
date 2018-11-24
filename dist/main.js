@@ -1,1 +1,137 @@
-!function(e){var t={};function r(i){if(t[i])return t[i].exports;var a=t[i]={i:i,l:!1,exports:{}};return e[i].call(a.exports,a,a.exports,r),a.l=!0,a.exports}r.m=e,r.c=t,r.d=function(e,t,i){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:i})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var i=Object.create(null);if(r.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)r.d(i,a,function(t){return e[t]}.bind(null,a));return i},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=0)}([function(e,t,r){"use strict";r.r(t);var i={slider:document.querySelector(".slider"),main:document.querySelector("main"),currentArticle:document.querySelector(".currentArticle"),heading:document.querySelector(".heading"),pic:document.querySelector(".heading__pic img"),title:document.querySelector(".heading__header")};const a={stories:[],arrayPosition:-1,apiKey:"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903"};(async()=>{const e=(await async function(){return(await fetch(a.apiKey)).json()}()).articles;a.stories=[...e]})();var n=a;var c=class{constructor(e){this.article=n.stories[e],this.slider=i.slider,this.author=this.article.author,this.date=this.article.publishedAt,this.outlet=this.article.source.name,this.url=this.article.url,this.pic=this.article.urlToImage,this.title=this.article.title}createImg(){const e=document.createElement("img"),t=this.pic;return e.setAttribute("src",t),e.classList.add("article__pic"),e}createTitle(){const e=this.title,t=document.createElement("h3"),r=document.createElement("span");return t.appendChild(r),t.classList.add("article__title"),r.innerText=e,t}createFigure(){const e=document.createElement("figure"),t=[this.createImg(),this.createTitle()];return e.classList.add("article__figure"),t.forEach(t=>{t.style.animationDelay=`${1*Math.random()}s`,e.appendChild(t)}),e}createAuthor(){const e=this.author,t=document.createElement("h5");return t.classList.add("article__author"),t.innerText=`- ${e}`,t.style.animationDelay=`${1*Math.random()}s`,t}createOutlet(){const e=this.outlet,t=document.createElement("h4");return t.classList.add("article__outlet"),t.innerText=e,t.style.animationDelay=`${1*Math.random()}s`,t}createDate(){const e=this.date,t=["Jan","Feb","March","April","May","June","July","August","Sept","Oct","Nov","Dec"][e.substring(5,7)-1],r=`20${e.substring(2,4)}`,i=e.substring(8,10),a=document.createElement("h5");return a.classList.add("article__date"),a.innerText=`${t} ${i}, ${r}`,a.style.animationDelay=`${1*Math.random()}s`,a}createArticle(){const e=document.createElement("article"),t=[this.createFigure(),this.createAuthor(),this.createOutlet(),this.createDate()];return i.main.appendChild(e),e.classList.add("article"),e.classList.add("fadeIn"),e.classList.add("currentArticle"),t.forEach(t=>{e.appendChild(t),t.classList.add("animateShadowsIn")}),e}};function s(){n.arrayPosition+=1;const e=new c(n.arrayPosition),t=null===e.pic?s():e.createArticle();return n.arrayPosition>=n.stories.length?n.arrayPosition:n.arrayPosition+=1,t}i.slider.addEventListener("click",function(){const{slider:e}=i,t=[...i.main.querySelectorAll(".currentArticle")];e.classList.toggle("move"),t.forEach(e=>e.classList.toggle("fadeIn")),setTimeout(()=>{t.forEach(e=>e.remove()),s(),s()},800)})}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/article.js":
+/*!************************!*\
+  !*** ./src/article.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./news */ \"./src/news.js\");\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\n\n\n\nclass Article {\n  constructor(position) {\n    this.article = _news__WEBPACK_IMPORTED_MODULE_0__[\"default\"].stories[position];\n    this.slider = _dom__WEBPACK_IMPORTED_MODULE_1__[\"default\"].slider;\n    // ARTICLE INFO\n    this.author = this.article.author;\n    this.date = this.article.publishedAt;\n    this.outlet = this.article.source.name;\n    this.url = this.article.url;\n    this.pic = this.article.urlToImage;\n    this.title = this.article.title;\n  }\n\n  createImg() {\n    const img = document.createElement('img');\n    const url = this.pic;\n    img.setAttribute('src', url);\n    img.classList.add('article__pic');\n    return img;\n  }\n\n  createTitle() {\n    const json = this.title;\n    const title = document.createElement('h3');\n    const span = document.createElement('span');\n    title.appendChild(span);\n    title.classList.add('article__title');\n    span.innerText = json;\n    return title;\n  }\n\n  createFigure() {\n    const figure = document.createElement('figure');\n    const elements = [this.createImg(), this.createTitle()];\n    figure.classList.add('article__figure');\n    elements.forEach((i) => {\n      i.style.animationDelay = `${Math.random() * 1}s`;\n      figure.appendChild(i);\n    });\n    return figure;\n  }\n\n  createAuthor() {\n    const json = this.author;\n    const author = document.createElement('h5');\n    author.classList.add('article__author');\n    author.innerText = `- ${json}`;\n    author.style.animationDelay = `${Math.random() * 1}s`;\n    return author;\n  }\n\n  createOutlet() {\n    const json = this.outlet;\n    const outlet = document.createElement('h4');\n    outlet.classList.add('article__outlet');\n    outlet.innerText = json;\n    outlet.style.animationDelay = `${Math.random() * 1}s`;\n    return outlet;\n  }\n\n  createDate() {\n    const json = this.date;\n    const month = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec'][(json.substring(5, 7)) - 1];\n    const year = `20${json.substring(2, 4)}`;\n    const day = json.substring(8, 10);\n    const date = document.createElement('h5');\n    date.classList.add('article__date');\n    date.innerText = `${month} ${day}, ${year}`;\n    date.style.animationDelay = `${Math.random() * 1}s`;\n    return date;\n  }\n\n  createArticle() {\n    const article = document.createElement('article');\n    const elements = [this.createFigure(), this.createAuthor(), this.createOutlet(), this.createDate()];\n    _dom__WEBPACK_IMPORTED_MODULE_1__[\"default\"].main.appendChild(article);\n    article.classList.add('article');\n    article.classList.add('fadeIn');\n    article.classList.add('currentArticle');\n    elements.forEach((i) => {\n      article.appendChild(i);\n      i.classList.add('animateShadowsIn');\n    });\n    return article;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Article);\n\n\n//# sourceURL=webpack:///./src/article.js?");
+
+/***/ }),
+
+/***/ "./src/dom.js":
+/*!********************!*\
+  !*** ./src/dom.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst DOM = {\n  slider: document.querySelector('.slider'),\n  main: document.querySelector('main'),\n  currentArticle: document.querySelector('.currentArticle'),\n  heading: document.querySelector('.heading'),\n  pic: document.querySelector('.heading__pic img'),\n  title: document.querySelector('.heading__header'),\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (DOM);\n\n\n//# sourceURL=webpack:///./src/dom.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n/* harmony import */ var _news__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./news */ \"./src/news.js\");\n/* harmony import */ var _article__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./article */ \"./src/article.js\");\n\n\n\n\nfunction createHTML() {\n  _news__WEBPACK_IMPORTED_MODULE_1__[\"default\"].arrayPosition += 1;\n  const article = new _article__WEBPACK_IMPORTED_MODULE_2__[\"default\"](_news__WEBPACK_IMPORTED_MODULE_1__[\"default\"].arrayPosition);\n  const html = article.pic === null ? createHTML() : article.createArticle();\n  return html;\n}\n\nfunction animateOut() {\n  const { slider } = _dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n  const currentArticles = [..._dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"].main.querySelectorAll('.currentArticle')];\n  slider.classList.toggle('move');\n  currentArticles.forEach(i => i.classList.toggle('fadeIn'));\n  setTimeout(() => {\n    currentArticles.forEach(i => i.remove());\n    createHTML();\n    createHTML();\n  }, 800);\n}\n\n_dom__WEBPACK_IMPORTED_MODULE_0__[\"default\"].slider.addEventListener('click', animateOut);\n\n\n// I'M REMOVING THE ELEMENTS BEFORE THE \"TRANSITIONEND\" EVENT FIRES OFF\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/news.js":
+/*!*********************!*\
+  !*** ./src/news.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst NEWS = {\n  stories: [],\n  arrayPosition: -1,\n  apiKey: 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8baaf90261984e748f990e495360e903',\n};\n\nasync function apiCall() {\n  const data = await fetch(NEWS.apiKey);\n  const json = data.json();\n  return json;\n}\n\n(async () => {\n  const json = await apiCall();\n  const news = json.articles;\n  NEWS.stories = [...news];\n})();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (NEWS);\n\n\n//# sourceURL=webpack:///./src/news.js?");
+
+/***/ })
+
+/******/ });
