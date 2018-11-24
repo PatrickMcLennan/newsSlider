@@ -23,7 +23,7 @@
   text-transform: uppercase;
   @if $breakpoint == desktop {
     font-size: 2rem;
-    line-height: 125%;
+    line-height: 250%;
     letter-spacing: .25rem;
   }
 }
@@ -45,4 +45,13 @@
   @if $breakpoint == desktop {
     font-size: 1rem;
   }
+}
+
+// TEXT BACKGROUND
+@mixin article__text($breakpoint) {
+  background-image: $color-background;
+  color: $color-white;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 2rem;
 }

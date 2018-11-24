@@ -25,9 +25,19 @@ class Article {
   createTitle() {
     const json = this.title;
     const title = document.createElement('h3');
+    const span = document.createElement('span');
+    title.appendChild(span);
     title.classList.add('article__title');
-    title.innerText = json;
+    span.innerText = json;
     return title;
+  }
+
+  createFigure() {
+    const figure = document.createElement('figure');
+    const elements = [this.createImg(), this.createTitle()];
+    figure.classList.add('article__figure');
+    elements.forEach(i => figure.appendChild(i));
+    return figure;
   }
 
   createAuthor() {
@@ -59,7 +69,7 @@ class Article {
 
   createArticle() {
     const article = document.createElement('article');
-    const elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
+    const elements = [this.createFigure(), this.createAuthor(), this.createOutlet(), this.createDate()];
     elements.forEach(i => article.appendChild(i));
     DOM.main.appendChild(article);
     article.classList.add('article');

@@ -65,9 +65,9 @@ main {
 
 .article {
   display: flex;
-  flex: 0 1 27.5vw;
+  flex: 0 1 35vw;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background: #e3e3e3;
   padding: 1vh;
   margin: 2vh 0;
@@ -78,28 +78,58 @@ main {
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
   cursor: pointer; }
+  .article__figure {
+    display: flex;
+    flex-direction: column;
+    min-height: 65%;
+    justify-content: flex-end;
+    position: relative; }
   .article__pic {
-    height: 35%;
+    position: absolute;
+    height: 100%;
     width: 100%;
+    z-index: -2;
     object-fit: cover;
     filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.7)); }
-  .article__title {
+  .article__title span {
     font-style: italic;
     text-transform: uppercase;
     font-size: 2rem;
-    line-height: 125%;
-    letter-spacing: .25rem; }
+    line-height: 250%;
+    letter-spacing: .25rem;
+    background-image: linear-gradient(to bottom right, red, orange);
+    color: #fff;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 2rem;
+    transform: translateY(100%); }
   .article__outlet {
     font-size: 1.75rem;
     text-transform: uppercase;
-    letter-spacing: .25rem; }
+    letter-spacing: .25rem;
+    background-image: linear-gradient(to bottom right, red, orange);
+    color: #fff;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 2rem;
+    align-self: flex-start; }
   .article__author {
     font-style: italic;
     font-size: 1.5rem;
+    background-image: linear-gradient(to bottom right, red, orange);
+    color: #fff;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 2rem;
     align-self: flex-end; }
   .article__date {
     text-transform: uppercase;
     font-size: 1rem;
+    background-image: linear-gradient(to bottom right, red, orange);
+    color: #fff;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 2rem;
     align-self: center; }
   .article:hover {
     animation: hoverAnimation 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards; }

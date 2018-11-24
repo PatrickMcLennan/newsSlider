@@ -47,9 +47,22 @@ var Article = function () {
     value: function createTitle() {
       var json = this.title;
       var title = document.createElement('h3');
+      var span = document.createElement('span');
+      title.appendChild(span);
       title.classList.add('article__title');
-      title.innerText = json;
+      span.innerText = json;
       return title;
+    }
+  }, {
+    key: 'createFigure',
+    value: function createFigure() {
+      var figure = document.createElement('figure');
+      var elements = [this.createImg(), this.createTitle()];
+      figure.classList.add('article__figure');
+      elements.forEach(function (i) {
+        return figure.appendChild(i);
+      });
+      return figure;
     }
   }, {
     key: 'createAuthor',
@@ -85,7 +98,7 @@ var Article = function () {
     key: 'createArticle',
     value: function createArticle() {
       var article = document.createElement('article');
-      var elements = [this.createImg(), this.createTitle(), this.createAuthor(), this.createOutlet(), this.createDate()];
+      var elements = [this.createFigure(), this.createAuthor(), this.createOutlet(), this.createDate()];
       elements.forEach(function (i) {
         return article.appendChild(i);
       });

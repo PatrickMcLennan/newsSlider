@@ -1,0 +1,13 @@
+
+
+
+
+
+
+  1. create figure html in javascript
+
+  2. append it to the article
+
+  3. style it
+
+  4. 2 stage animation --> the article pops up first, img + text grow shadows after (at different times)

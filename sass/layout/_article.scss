@@ -1,8 +1,8 @@
 .article {
   display: flex;
-  flex: 0 1 27.5vw;
+  flex: 0 1 35vw;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background: #e3e3e3;
   padding: 1vh;
   margin: 2vh 0;
@@ -14,26 +14,42 @@
   transition: all .8s cubic-bezier(0.77, 0, 0.175, 1);
   cursor: pointer;
 
+  &__figure {
+    display: flex;
+    flex-direction: column;
+    min-height: 65%;
+    justify-content: flex-end;
+    position: relative;
+  }
+
   &__pic {
-    height: 35%;
+    position: absolute;
+    height: 100%;
     width: 100%;
+    z-index: -2;
     object-fit: cover;
     filter: $drop-shadow;
   }
 
-  &__title {
+  &__title span {
     @include article__title(desktop);
+    @include article__text(desktop);
+    transform: translateY(100%);
   }
 
   &__outlet {
     @include article__outlet(desktop);
+    @include article__text(desktop);
+    align-self: flex-start;
   }
   &__author {
     @include article__author(desktop);
+    @include article__text(desktop);
     align-self: flex-end;
   }
   &__date {
     @include article__date(desktop);
+    @include article__text(desktop);
     align-self: center;
   }
 
