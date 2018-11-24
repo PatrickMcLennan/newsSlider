@@ -6,6 +6,11 @@ function createHTML() {
   NEWS.arrayPosition += 1;
   const article = new Article(NEWS.arrayPosition);
   const html = article.pic === null ? createHTML() : article.createArticle();
+  if (NEWS.arrayPosition >= NEWS.stories.length) {
+    NEWS.arrayPosition === 0;
+  } else {
+    NEWS.arrayPosition += 1;
+  }
   return html;
 }
 

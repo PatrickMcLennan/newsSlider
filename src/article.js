@@ -20,7 +20,6 @@ class Article {
     const url = this.pic;
     img.setAttribute('src', url);
     img.classList.add('article__pic');
-    img.style.animationDelay = `${Math.random() * 1}s`;
     return img;
   }
 
@@ -30,7 +29,6 @@ class Article {
     const span = document.createElement('span');
     title.appendChild(span);
     title.classList.add('article__title');
-    span.style.animationDelay = `${Math.random() * 1}s`;
     span.innerText = json;
     return title;
   }
@@ -39,7 +37,10 @@ class Article {
     const figure = document.createElement('figure');
     const elements = [this.createImg(), this.createTitle()];
     figure.classList.add('article__figure');
-    elements.forEach(i => figure.appendChild(i));
+    elements.forEach((i) => {
+      i.style.animationDelay = `${Math.random() * 1}s`;
+      figure.appendChild(i);
+    });
     return figure;
   }
 

@@ -40,7 +40,6 @@ var Article = function () {
       var url = this.pic;
       img.setAttribute('src', url);
       img.classList.add('article__pic');
-      img.style.animationDelay = Math.random() * 1 + 's';
       return img;
     }
   }, {
@@ -51,7 +50,6 @@ var Article = function () {
       var span = document.createElement('span');
       title.appendChild(span);
       title.classList.add('article__title');
-      span.style.animationDelay = Math.random() * 1 + 's';
       span.innerText = json;
       return title;
     }
@@ -62,7 +60,8 @@ var Article = function () {
       var elements = [this.createImg(), this.createTitle()];
       figure.classList.add('article__figure');
       elements.forEach(function (i) {
-        return figure.appendChild(i);
+        i.style.animationDelay = Math.random() * 1 + 's';
+        figure.appendChild(i);
       });
       return figure;
     }
