@@ -10,7 +10,7 @@ class Article {
     this.author = this.article.author;
     this.date = this.article.publishedAt;
     this.outlet = this.article.source.name;
-    this.url = this.article.url;
+    this.btn = this.article.url;
     this.pic = this.article.urlToImage;
     this.title = this.article.title;
   }
@@ -33,9 +33,19 @@ class Article {
     return title;
   }
 
+  createBtn() {
+    const json = this.btn;
+    const btn = document.createElement('a');
+    btn.classList.add('article__button');
+    btn.setAttribute('href', json);
+    btn.setAttribute('target', '_blank');
+    btn.innerText = 'Go To Article';
+    return btn;
+  }
+
   createFigure() {
     const figure = document.createElement('figure');
-    const elements = [this.createImg(), this.createTitle()];
+    const elements = [this.createImg(), this.createTitle(), this.createBtn()];
     figure.classList.add('article__figure');
     elements.forEach((i) => {
       i.style.animationDelay = `${Math.random() * 1}s`;

@@ -27,6 +27,16 @@
     letter-spacing: .25rem;
   }
 }
+
+@mixin article__button($breakpoint) {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $color-white;
+  @if $breakpoint == desktop {
+    font-size: 1.5rem;
+    letter-spacing: .125rem;
+  }
+}
 @mixin article__outlet($breakpoint) {
   @if $breakpoint == desktop {
     font-size: 1.75rem;

@@ -28,7 +28,7 @@ var Article = function () {
     this.author = this.article.author;
     this.date = this.article.publishedAt;
     this.outlet = this.article.source.name;
-    this.url = this.article.url;
+    this.btn = this.article.url;
     this.pic = this.article.urlToImage;
     this.title = this.article.title;
   }
@@ -54,10 +54,21 @@ var Article = function () {
       return title;
     }
   }, {
+    key: 'createBtn',
+    value: function createBtn() {
+      var json = this.btn;
+      var btn = document.createElement('a');
+      btn.classList.add('article__button');
+      btn.setAttribute('href', json);
+      btn.setAttribute('target', '_blank');
+      btn.innerText = 'Go To Article';
+      return btn;
+    }
+  }, {
     key: 'createFigure',
     value: function createFigure() {
       var figure = document.createElement('figure');
-      var elements = [this.createImg(), this.createTitle()];
+      var elements = [this.createImg(), this.createTitle(), this.createBtn()];
       figure.classList.add('article__figure');
       elements.forEach(function (i) {
         i.style.animationDelay = Math.random() * 1 + 's';
